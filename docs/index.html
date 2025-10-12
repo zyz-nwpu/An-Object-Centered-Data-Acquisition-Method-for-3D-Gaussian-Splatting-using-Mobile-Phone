@@ -3,29 +3,38 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Mobile Object-Centered Capture — Demo Video</title>
-  <meta name="description" content="Demo video and links for the mobile, object-centered capture app used with 3D Gaussian Splatting." />
+  <title>Mobile Object-Centered Capture — Demos & Downloads</title>
+  <meta name="description" content="Demo videos and APK for the mobile, object-centered capture app used with 3D Gaussian Splatting." />
   <style>
     :root{
       --fg:#111; --muted:#666; --line:#eaeaea; --bg:#f7f7f7; --card:#fff;
-      --radius:14px; --pad:16px; --maxw:960px;
-      --video-maxw:480px; /* 默认小尺寸展示 */
+      --radius:14px; --pad:16px; --maxw:1100px;
+      --video-maxw:720px; /* default video display width, controlled by size chips */
     }
     *{box-sizing:border-box}
     body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;background:var(--bg);color:var(--fg);line-height:1.6}
+    a{color:#0b57d0}
     nav{position:sticky;top:0;z-index:10;background:#fff;border-bottom:1px solid var(--line)}
     .navwrap{max-width:var(--maxw);margin:0 auto;padding:10px var(--pad);display:flex;gap:10px;flex-wrap:wrap;align-items:center;justify-content:space-between}
     .btn{display:inline-block;padding:8px 12px;border:1px solid var(--line);border-radius:10px;text-decoration:none;color:var(--fg);background:#fff}
     .btn:hover{background:#fafafa}
     .wrap{max-width:var(--maxw);margin:16px auto 24px;padding:0 var(--pad)}
-    .card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:20px;box-shadow:0 4px 16px rgba(0,0,0,.04)}
+    .card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:20px;box-shadow:0 4px 16px rgba(0,0,0,.04);margin-bottom:16px}
     h1{margin:0 0 6px;font-size:24px}
-    p.lead{margin:0 0 16px;color:var(--muted)}
+    h2{margin:8px 0 8px;font-size:20px}
+    p.lead{margin:0 0 12px;color:var(--muted)}
     .notice{background:#fff8e1;border:1px solid #ffe0a3;color:#8a6d1a;border-radius:12px;padding:10px 12px;margin:12px 0}
-    .video-wrap{margin-top:8px;display:flex;flex-direction:column;align-items:center}
+    .controls{display:flex;gap:8px;align-items:center;justify-content:flex-end;margin:4px 0 8px}
+    .chip{padding:6px 10px;border:1px solid var(--line);border-radius:999px;background:#fff;cursor:pointer;font-size:14px}
+    .chip.active{background:#111;color:#fff;border-color:#111}
+    .video-wrap{display:flex;flex-direction:column;align-items:center;gap:8px}
     .video{width:100%;max-width:var(--video-maxw);background:#000;border-radius:12px}
-    .dl{margin-top:12px;display:inline-block;background:#111;color:#fff;text-decoration:none;padding:12px 16px;border-radius:12px}
+    .dl{display:inline-block;background:#111;color:#fff;text-decoration:none;padding:10px 14px;border-radius:12px}
     .dl:hover{opacity:.9}
+    .row{display:grid;grid-template-columns:1fr;gap:16px}
+    @media (min-width: 980px){
+      .row{grid-template-columns:1fr 1fr}
+    }
     footer{margin:24px 0;color:var(--muted);font-size:14px;text-align:center}
   </style>
 </head>
@@ -35,44 +44,84 @@
   <nav>
     <div class="navwrap">
       <div style="display:flex;gap:8px;flex-wrap:wrap">
-        <!-- 常见的开源文案：查看代码 / 更多项目 -->
         <a class="btn" href="https://github.com/zyz-nwpu/A-Mobile-Object-Centered-Data-Acquisition-Framework-for-3D-Gaussian-Splatting">View Code on GitHub</a>
         <a class="btn" href="https://github.com/zyz-nwpu">More projects</a>
+      </div>
+      <!-- Global video size controls -->
+      <div class="controls" aria-label="Video size">
+        <span style="color:#666;font-size:14px">Video size:</span>
+        <button class="chip" data-w="480">Small</button>
+        <button class="chip active" data-w="720">Medium</button>
+        <button class="chip" data-w="960">Large</button>
       </div>
     </div>
   </nav>
 
   <main class="wrap">
+
     <section class="card">
       <div class="notice">
-        📢 Heads-up: Only one demo video is available for now.
-        The <strong>source code is not yet uploaded</strong>, but we have provided an <strong>APK</strong> so you can try the app first.
-        A detailed step-by-step guide and full description are <strong>on the way</strong> and will be added here soon.
-        <!-- APK 下载：按你的实际位置改链接；这里假设放在同一 v1 Release 下 -->
-        <div style="margin-top:8px;">
-          👉 Try it now: <a href="https://github.com/zyz-nwpu/A-Mobile-Object-Centered-Data-Acquisition-Framework-for-3D-Gaussian-Splatting/releases/download/v1/app-demo.apk">Download APK</a>
-        </div>
+        📢 Heads-up: Only demo videos and an APK are available for now.
+        The <strong>source code is not yet uploaded</strong>, but we’ve provided an
+        <strong>Android APK</strong> so you can try the app first. A detailed step-by-step guide and full description are <strong>on the way</strong> and will be added here soon.
       </div>
+      <h1>Mobile Object-Centered Capture — Demos & Downloads</h1>
+      <p class="lead">Autoplayed preview videos below. Use the download buttons for full files or visit the Release page to see all assets.</p>
+    </section>
 
-      <h1>Mobile Object-Centered Capture — Demo Video</h1>
-      <p class="lead">This page hosts the demo video of the mobile, object-centered capture app for 3D Gaussian Splatting.</p>
-
-      <!-- Video area (small by default) -->
+    <!-- Videos -->
+    <section class="card">
+      <h2>🎥 Capturing workflow</h2>
       <div class="video-wrap">
-        <!-- Autoplay needs muted to be allowed by most browsers. playsinline prevents forced fullscreen on mobile. -->
         <video class="video" controls autoplay muted loop playsinline preload="metadata"
-               src="https://github.com/zyz-nwpu/A-Mobile-Object-Centered-Data-Acquisition-Framework-for-3D-Gaussian-Splatting/releases/download/v1/1.mp4">
-          Your browser does not support HTML5 video. Please use the download button below.
+          src="https://github.com/zyz-nwpu/A-Mobile-Object-Centered-Data-Acquisition-Framework-for-3D-Gaussian-Splatting/releases/download/v1/capturing.mp4">
+          Your browser does not support HTML5 video.
         </video>
+        <a class="dl" href="https://github.com/zyz-nwpu/A-Mobile-Object-Centered-Data-Acquisition-Framework-for-3D-Gaussian-Splatting/releases/download/v1/capturing.mp4">⬇️ Download capturing.mp4</a>
+      </div>
+    </section>
 
-        <a class="dl" href="https://github.com/zyz-nwpu/A-Mobile-Object-Centered-Data-Acquisition-Framework-for-3D-Gaussian-Splatting/releases/download/v1/1.mp4">
-          ⬇️ Download full video (1.mp4)
-        </a>
+    <section class="card">
+      <h2>🎥 Reconstruction result</h2>
+      <div class="video-wrap">
+        <video class="video" controls autoplay muted loop playsinline preload="metadata"
+          src="https://github.com/zyz-nwpu/A-Mobile-Object-Centered-Data-Acquisition-Framework-for-3D-Gaussian-Splatting/releases/download/v1/reconstruction_result.mp4">
+          Your browser does not support HTML5 video.
+        </video>
+        <a class="dl" href="https://github.com/zyz-nwpu/A-Mobile-Object-Centered-Data-Acquisition-Framework-for-3D-Gaussian-Splatting/releases/download/v1/reconstruction_result.mp4">⬇️ Download reconstruction_result.mp4</a>
+      </div>
+    </section>
+
+    <!-- APK -->
+    <section class="card">
+      <h2>📦 Android APK</h2>
+      <div class="row">
+        <div>
+          <p class="lead" style="margin-top:0">
+            Try the app on your Android device. This is a debug build for demo purposes.
+          </p>
+          <a class="dl" href="https://github.com/zyz-nwpu/A-Mobile-Object-Centered-Data-Acquisition-Framework-for-3D-Gaussian-Splatting/releases/download/v1/camera-6-core-debug.apk">
+            ⬇️ Download camera-6-core-debug.apk
+          </a>
+        </div>
+        <div>
+          <p class="lead">See all files in the Release:</p>
+          <a class="btn" href="https://github.com/zyz-nwpu/A-Mobile-Object-Centered-Data-Acquisition-Framework-for-3D-Gaussian-Splatting/releases/tag/v1">Open Release v1</a>
+        </div>
       </div>
     </section>
 
     <footer>© 2025 zyz-nwpu</footer>
   </main>
 
+  <script>
+    // Global size toggles: update CSS variable --video-maxw
+    const chips = document.querySelectorAll('.chip');
+    function setSize(px){
+      document.documentElement.style.setProperty('--video-maxw', px + 'px');
+      chips.forEach(c=>c.classList.toggle('active', c.dataset.w === String(px)));
+    }
+    chips.forEach(c=> c.addEventListener('click', ()=> setSize(c.dataset.w)));
+  </script>
 </body>
 </html>
