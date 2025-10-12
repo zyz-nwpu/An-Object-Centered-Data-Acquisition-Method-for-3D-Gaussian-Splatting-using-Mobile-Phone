@@ -9,7 +9,7 @@
     :root{
       --fg:#111; --muted:#666; --line:#eaeaea; --bg:#f7f7f7; --card:#fff;
       --radius:14px; --pad:16px; --maxw:1100px;
-      --video-maxw:720px; /* default video display width, controlled by size chips */
+      --video-maxw:380px; /* 固定更小尺寸（原最小480px→380px） */
     }
     *{box-sizing:border-box}
     body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;background:var(--bg);color:var(--fg);line-height:1.6}
@@ -24,9 +24,6 @@
     h2{margin:8px 0 8px;font-size:20px}
     p.lead{margin:0 0 12px;color:var(--muted)}
     .notice{background:#fff8e1;border:1px solid #ffe0a3;color:#8a6d1a;border-radius:12px;padding:10px 12px;margin:12px 0}
-    .controls{display:flex;gap:8px;align-items:center;justify-content:flex-end;margin:4px 0 8px}
-    .chip{padding:6px 10px;border:1px solid var(--line);border-radius:999px;background:#fff;cursor:pointer;font-size:14px}
-    .chip.active{background:#111;color:#fff;border-color:#111}
     .video-wrap{display:flex;flex-direction:column;align-items:center;gap:8px}
     .video{width:100%;max-width:var(--video-maxw);background:#000;border-radius:12px}
     .dl{display:inline-block;background:#111;color:#fff;text-decoration:none;padding:10px 14px;border-radius:12px}
@@ -47,13 +44,8 @@
         <a class="btn" href="https://github.com/zyz-nwpu/A-Mobile-Object-Centered-Data-Acquisition-Framework-for-3D-Gaussian-Splatting">View Code on GitHub</a>
         <a class="btn" href="https://github.com/zyz-nwpu">More projects</a>
       </div>
-      <!-- Global video size controls -->
-      <div class="controls" aria-label="Video size">
-        <span style="color:#666;font-size:14px">Video size:</span>
-        <button class="chip" data-w="480">Small</button>
-        <button class="chip active" data-w="720">Medium</button>
-        <button class="chip" data-w="960">Large</button>
-      </div>
+      <!-- 已去除尺寸按键，固定小尺寸展示 -->
+      <div style="font-size:12px;color:#888">Fixed compact preview</div>
     </div>
   </nav>
 
@@ -61,12 +53,12 @@
 
     <section class="card">
       <div class="notice">
-        📢 Heads-up: Only demo videos and an APK are available for now.
-        The <strong>source code is not yet uploaded</strong>, but we’ve provided an
-        <strong>Android APK</strong> so you can try the app first. A detailed step-by-step guide and full description are <strong>on the way</strong> and will be added here soon.
+        📢 Heads-up / 提示：For now we only provide <strong>two demo videos</strong> and an <strong>Android APK</strong>. 
+        The <strong>source code is not yet uploaded</strong>. We will <strong>submit</strong> and <strong>continuously add</strong> the full description, step-by-step guide, and code soon.  
+        （当前仅上传了两个演示视频与 APK，源码与详细说明将<strong>补交并持续更新</strong>）
       </div>
       <h1>Mobile Object-Centered Capture — Demos & Downloads</h1>
-      <p class="lead">Autoplayed preview videos below. Use the download buttons for full files or visit the Release page to see all assets.</p>
+      <p class="lead">Compact autoplay previews below. Use the download buttons for full files or open the Release page to see all assets.</p>
     </section>
 
     <!-- Videos -->
@@ -98,7 +90,7 @@
       <div class="row">
         <div>
           <p class="lead" style="margin-top:0">
-            Try the app on your Android device. This is a debug build for demo purposes.
+            Try the app on your Android device (debug build for demo purposes).
           </p>
           <a class="dl" href="https://github.com/zyz-nwpu/A-Mobile-Object-Centered-Data-Acquisition-Framework-for-3D-Gaussian-Splatting/releases/download/v1/camera-6-core-debug.apk">
             ⬇️ Download camera-6-core-debug.apk
@@ -114,14 +106,5 @@
     <footer>© 2025 zyz-nwpu</footer>
   </main>
 
-  <script>
-    // Global size toggles: update CSS variable --video-maxw
-    const chips = document.querySelectorAll('.chip');
-    function setSize(px){
-      document.documentElement.style.setProperty('--video-maxw', px + 'px');
-      chips.forEach(c=>c.classList.toggle('active', c.dataset.w === String(px)));
-    }
-    chips.forEach(c=> c.addEventListener('click', ()=> setSize(c.dataset.w)));
-  </script>
 </body>
 </html>
