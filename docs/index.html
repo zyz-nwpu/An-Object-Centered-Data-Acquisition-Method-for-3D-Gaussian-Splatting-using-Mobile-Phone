@@ -9,22 +9,27 @@
     :root{
       --fg:#111; --muted:#666; --line:#eaeaea; --bg:#f7f7f7; --card:#fff;
       --radius:14px; --pad:16px; --maxw:960px;
+      --video-maxw:720px; /* 默认视频最大宽度，可由按钮动态调整 */
     }
     *{box-sizing:border-box}
     body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;background:var(--bg);color:var(--fg);line-height:1.6}
     nav{position:sticky;top:0;z-index:10;background:#fff;border-bottom:1px solid var(--line)}
-    .navwrap{max-width:var(--maxw);margin:0 auto;padding:10px var(--pad);display:flex;gap:10px;flex-wrap:wrap}
-    .btn{display:inline-block;padding:8px 12px;border:1px solid var(--line);border-radius:10px;text-decoration:none;color:var(--fg)}
+    .navwrap{max-width:var(--maxw);margin:0 auto;padding:10px var(--pad);display:flex;gap:10px;flex-wrap:wrap;align-items:center;justify-content:space-between}
+    .btn{display:inline-block;padding:8px 12px;border:1px solid var(--line);border-radius:10px;text-decoration:none;color:var(--fg);background:#fff}
     .btn:hover{background:#fafafa}
-    .wrap{max-width:var(--maxw);margin:24px auto;padding:0 var(--pad)}
+    .wrap{max-width:var(--maxw);margin:16px auto 24px;padding:0 var(--pad)}
     .card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:20px;box-shadow:0 4px 16px rgba(0,0,0,.04)}
     h1{margin:0 0 6px;font-size:24px}
     p.lead{margin:0 0 16px;color:var(--muted)}
-    .video{width:100%;max-width:100%;background:#000;border-radius:12px}
-    .dl{margin-top:16px;display:inline-block;background:#111;color:#fff;text-decoration:none;padding:12px 16px;border-radius:12px}
+    .notice{background:#fff8e1;border:1px solid #ffe0a3;color:#8a6d1a;border-radius:12px;padding:10px 12px;margin:12px 0}
+    .video-wrap{margin-top:8px;display:flex;flex-direction:column;align-items:center}
+    .video{width:100%;max-width:var(--video-maxw);background:#000;border-radius:12px}
+    .controls{display:flex;gap:8px;align-items:center;justify-content:flex-end;margin:8px 0}
+    .chip{padding:6px 10px;border:1px solid var(--line);border-radius:999px;background:#fff;cursor:pointer;font-size:14px}
+    .chip.active{background:#111;color:#fff;border-color:#111}
+    .dl{margin-top:12px;display:inline-block;background:#111;color:#fff;text-decoration:none;padding:12px 16px;border-radius:12px}
     .dl:hover{opacity:.9}
-    footer{margin:24px 0;color:var(--muted);font-size:14px}
-    .note{font-size:14px;color:var(--muted)}
+    footer{margin:24px 0;color:var(--muted);font-size:14px;text-align:center}
   </style>
 </head>
 <body>
@@ -32,44 +37,55 @@
   <!-- Top nav with back-to-GitHub buttons -->
   <nav>
     <div class="navwrap">
-      <a class="btn" href="https://github.com/zyz-nwpu/A-Mobile-Object-Centered-Data-Acquisition-Framework-for-3D-Gaussian-Splatting">← Back to GitHub (Repo)</a>
-      <a class="btn" href="https://github.com/zyz-nwpu">My GitHub Profile</a>
+      <div style="display:flex;gap:8px;flex-wrap:wrap">
+        <a class="btn" href="https://github.com/zyz-nwpu/A-Mobile-Object-Centered-Data-Acquisition-Framework-for-3D-Gaussian-Splatting">← Back to GitHub (Repo)</a>
+        <a class="btn" href="https://github.com/zyz-nwpu">My GitHub Profile</a>
+      </div>
+      <!-- Size controls on the right -->
+      <div class="controls" aria-label="Video size">
+        <button class="chip" data-w="480">Small</button>
+        <button class="chip active" data-w="720">Medium</button>
+        <button class="chip" data-w="960">Large</button>
+      </div>
     </div>
   </nav>
 
   <main class="wrap">
     <section class="card">
+      <div class="notice">
+        📢 Heads-up: Only one demo video is uploaded for now. A detailed step-by-step walkthrough is being prepared and will be added here soon.
+      </div>
+
       <h1>Mobile Object-Centered Capture — Demo Video</h1>
       <p class="lead">This page hosts the demo video of the mobile, object-centered capture app for 3D Gaussian Splatting.</p>
 
-      <!-- Try to play the large video directly from Releases.
-           If the browser or GitHub forces a download, use the big Download button below. -->
-      <video class="video" controls playsinline
-             src="https://github.com/zyz-nwpu/A-Mobile-Object-Centered-Data-Acquisition-Framework-for-3D-Gaussian-Splatting/releases/download/v1/1.mp4">
-        Your browser does not support HTML5 video. Please use the download button below.
-      </video>
+      <!-- Video area -->
+      <div class="video-wrap">
+        <!-- Autoplay needs muted to be allowed by most browsers. playsinline prevents forced fullscreen on mobile. -->
+        <video class="video" controls autoplay muted loop playsinline preload="metadata"
+               src="https://github.com/zyz-nwpu/A-Mobile-Object-Centered-Data-Acquisition-Framework-for-3D-Gaussian-Splatting/releases/download/v1/1.mp4">
+          Your browser does not support HTML5 video. Please use the download button below.
+        </video>
 
-      <p class="note">If inline playback fails (some browsers/CDNs may force download), use the button below.</p>
-
-      <!-- Big download button (fallback / recommended for >25MB) -->
-      <p>
         <a class="dl" href="https://github.com/zyz-nwpu/A-Mobile-Object-Centered-Data-Acquisition-Framework-for-3D-Gaussian-Splatting/releases/download/v1/1.mp4">
           ⬇️ Download full video (1.mp4)
         </a>
-      </p>
-
-      <!-- Optional: If later you upload to YouTube or Bilibili, replace the iframe src and remove the note above. -->
-      <!--
-      <h2 style="margin-top:24px">Alternative streaming embed</h2>
-      <iframe width="100%" height="480"
-              src="https://www.youtube.com/embed/VIDEO_ID"
-              title="Demo" frameborder="0"
-              allow="autoplay; clipboard-write; encrypted-media; picture-in-picture"
-              allowfullscreen></iframe>
-      -->
+      </div>
     </section>
 
     <footer>© 2025 YUEZHE ZHANG</footer>
   </main>
+
+  <script>
+    // Simple size toggles: update CSS variable --video-maxw
+    const chips = document.querySelectorAll('.chip');
+    function setSize(px){
+      document.documentElement.style.setProperty('--video-maxw', px + 'px');
+      chips.forEach(c=>c.classList.toggle('active', c.dataset.w === String(px)));
+    }
+    chips.forEach(c=>{
+      c.addEventListener('click', ()=> setSize(c.dataset.w));
+    });
+  </script>
 </body>
 </html>
