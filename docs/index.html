@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Mobile Object-Centered Capture — Demo Video</title>
+  <meta name="description" content="Demo video and links for the mobile, object-centered capture app used with 3D Gaussian Splatting." />
+  <style>
+    :root{
+      --fg:#111; --muted:#666; --line:#eaeaea; --bg:#f7f7f7; --card:#fff;
+      --radius:14px; --pad:16px; --maxw:960px;
+    }
+    *{box-sizing:border-box}
+    body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;background:var(--bg);color:var(--fg);line-height:1.6}
+    nav{position:sticky;top:0;z-index:10;background:#fff;border-bottom:1px solid var(--line)}
+    .navwrap{max-width:var(--maxw);margin:0 auto;padding:10px var(--pad);display:flex;gap:10px;flex-wrap:wrap}
+    .btn{display:inline-block;padding:8px 12px;border:1px solid var(--line);border-radius:10px;text-decoration:none;color:var(--fg)}
+    .btn:hover{background:#fafafa}
+    .wrap{max-width:var(--maxw);margin:24px auto;padding:0 var(--pad)}
+    .card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:20px;box-shadow:0 4px 16px rgba(0,0,0,.04)}
+    h1{margin:0 0 6px;font-size:24px}
+    p.lead{margin:0 0 16px;color:var(--muted)}
+    .video{width:100%;max-width:100%;background:#000;border-radius:12px}
+    .dl{margin-top:16px;display:inline-block;background:#111;color:#fff;text-decoration:none;padding:12px 16px;border-radius:12px}
+    .dl:hover{opacity:.9}
+    footer{margin:24px 0;color:var(--muted);font-size:14px}
+    .note{font-size:14px;color:var(--muted)}
+  </style>
+</head>
+<body>
+
+  <!-- Top nav with back-to-GitHub buttons -->
+  <nav>
+    <div class="navwrap">
+      <a class="btn" href="https://github.com/YUEZHE-ZHANG/A-Mobile-Object-Centered-Data-Acquisition-Framework-for-3D-Gaussian-Splatting">← Back to GitHub (Repo)</a>
+      <a class="btn" href="https://github.com/YUEZHE-ZHANG">My GitHub Profile</a>
+    </div>
+  </nav>
+
+  <main class="wrap">
+    <section class="card">
+      <h1>Mobile Object-Centered Capture — Demo Video</h1>
+      <p class="lead">This page hosts the demo video of the mobile, object-centered capture app for 3D Gaussian Splatting.</p>
+
+      <!-- Try to play the large video directly from Releases.
+           If the browser or GitHub forces a download, use the big Download button below. -->
+      <video class="video" controls playsinline
+             src="https://github.com/YUEZHE-ZHANG/A-Mobile-Object-Centered-Data-Acquisition-Framework-for-3D-Gaussian-Splatting/releases/download/v1/1.mp4">
+        Your browser does not support HTML5 video. Please use the download button below.
+      </video>
+
+      <p class="note">If inline playback fails (some browsers/CDNs may force download), use the button below.</p>
+
+      <!-- Big download button (fallback / recommended for >25MB) -->
+      <p>
+        <a class="dl" href="https://github.com/YUEZHE-ZHANG/A-Mobile-Object-Centered-Data-Acquisition-Framework-for-3D-Gaussian-Splatting/releases/download/v1/1.mp4">
+          ⬇️ Download full video (1.mp4)
+        </a>
+      </p>
+
+      <!-- Optional: If later you upload to YouTube or Bilibili, replace the iframe src and remove the note above. -->
+      <!--
+      <h2 style="margin-top:24px">Alternative streaming embed</h2>
+      <iframe width="100%" height="480"
+              src="https://www.youtube.com/embed/VIDEO_ID"
+              title="Demo" frameborder="0"
+              allow="autoplay; clipboard-write; encrypted-media; picture-in-picture"
+              allowfullscreen></iframe>
+      -->
+    </section>
+
+    <footer>© 2025 YUEZHE ZHANG</footer>
+  </main>
+</body>
+</html>
