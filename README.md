@@ -32,12 +32,10 @@ Mobile capture was conducted on a **Redmi K70 Pro** with angle logging and stabi
 
 ### 📱 Capture (phone screen recording)
 <video controls playsinline width="720"
-  src="https://ghproxy.net/https://github.com/zyz-nwpu/An-Object-Centered-Data-Acquisition-Method-for-3D-Gaussian-Splatting-using-Mobile-Phone/releases/download/v1/capturing.mp4">
-</video>
+  src="https://zyz-nwpu.github.io/An-Object-Centered-Data-Acquisition-Method-for-3D-Gaussian-Splatting-using-Mobile-Phone/capturing.mp4"></video>
 
 ### 🧱 Reconstruction result
 <video controls playsinline width="720"
-  src="https://ghproxy.net/https://github.com/zyz-nwpu/An-Object-Centered-Data-Acquisition-Method-for-3D-Gaussian-Splatting-using-Mobile-Phone/releases/download/v1/reconstruction_result.mp4">
-</video>
+  src="https://zyz-nwpu.github.io/An-Object-Centered-Data-Acquisition-Method-for-3D-Gaussian-Splatting-using-Mobile-Phone/reconstruction_result.mp4"></video>
 
 
