@@ -43,12 +43,36 @@
     .media-block img,
     .media-block video{
       display:block;
-      width:100%;
-      height:auto;          /* keep aspect ratio */
       border-radius:8px;
       background:#fff;
     }
     figcaption{padding:10px 12px;font-size:14px;color:#333;border-top:1px solid var(--line)}
+
+    /* === A) Proportional control by WIDTH (recommended) === */
+    .is-figure .media-block img{
+      width: var(--fig-w, 100%);  /* e.g., 720px or 80% */
+      max-width: 100%;
+      height: auto;
+    }
+    .is-video .media-block video{
+      width: var(--vid-w, 100%);  /* e.g., 560px or 70% */
+      max-width: 100%;
+      height: auto;
+    }
+
+    /* === B) Proportional control by HEIGHT (same visual height) ===
+       Add class 'equal-height' on the figure and set --media-h.
+       Change object-fit to 'cover' if you want fill (with cropping). */
+    .equal-height .media-block img,
+    .equal-height .media-block video{
+      height: var(--media-h, 360px);
+      width: auto;
+      max-width: 100%;
+      object-fit: contain;
+    }
+
+    /* Center media when using fixed widths/heights */
+    .media-block{ display:flex; justify-content:center; }
   </style>
 </head>
 <body>
@@ -109,30 +133,41 @@
       <div class="hrow"><span class="hicon">🎬</span><div class="htxt">Demo & Figure</div></div>
 
       <!-- 1) Method figure (first item) -->
-      <figure style="margin-bottom:12px">
+      <!-- WIDTH-based scaling by default: set --fig-w -->
+      <!-- To use equal heights instead, add class 'equal-height' and set --media-h -->
+      <figure class="is-figure" style="--fig-w: 760px;">
         <div class="media-block">
           <!-- index.html and image are in the same folder -->
           <img src="./绘图1_01.png" alt="Method figure (display-only)" loading="lazy">
         </div>
         <figcaption>
-          <strong>Method figure.</strong> A compact summary of our <em>object-centered</em> mobile capture loop: a one-time calibration, 
-          real-time indexing of the camera forward vector on a <em>discretized spherical grid</em>, 
-          <em>area-weighted</em> coverage feedback to guide motion uniformly, and a <em>stability gate</em> that filters shaky frames via smoothed IMU signals. 
+          <strong>Method figure.</strong> A compact summary of our <em>object-centered</em> mobile capture loop: a one-time calibration,
+          real-time indexing of the camera forward vector on a <em>discretized spherical grid</em>, <em>area-weighted</em> coverage feedback
+          to guide motion uniformly, and a <em>stability gate</em> that filters shaky frames via smoothed IMU signals.
           This mirrors the method section in the PDF and clarifies the inputs and closed-loop feedback used for 3DGS reconstruction.
         </figcaption>
       </figure>
 
       <!-- 2) Capture demo video (second item) -->
-      <figure>
+      <!-- WIDTH-based scaling by default: set --vid-w -->
+      <!-- To use equal heights instead, add class 'equal-height' and set --media-h -->
+      <figure class="is-video" style="--vid-w: 680px; margin-top:12px;">
         <div class="media-block">
           <video controls autoplay muted loop playsinline preload="metadata"
             src="https://github.com/zyz-nwpu/An-Object-Centered-Data-Acquisition-Method-for-3D-Gaussian-Splatting-using-Mobile-Phone/releases/download/v1/capturing.mp4">
           </video>
         </div>
         <figcaption>
-          <strong>Capture demo.</strong> Phone screen recording showing live coverage progress and stability-gate status while moving around the object to achieve uniform, complete viewpoints.
+          <strong>Capture demo.</strong> Phone screen recording showing live coverage progress and stability-gate status
+          while moving around the object to achieve uniform, complete viewpoints.
         </figcaption>
       </figure>
+
+      <!-- Example (optional): make both equal height instead of width
+      <figure class="is-figure equal-height" style="--media-h: 400px;"></figure>
+      <figure class="is-video equal-height"  style="--media-h: 400px;"></figure>
+      -->
+
     </section>
 
     <!-- Downloads -->
