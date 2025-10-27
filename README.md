@@ -31,17 +31,13 @@ Mobile capture was conducted on a **Redmi K70 Pro** with angle logging and stabi
 ## 🎬 Demo & Showcase
 
 ### 📱 Capture (phone screen recording)
-The following clip illustrates the guided, object-centered acquisition on a smartphone with real-time spherical coverage and stability gating.
-
-<video controls playsinline width="720">
-  <source src="https://github.com/zyz-nwpu/An-Object-Centered-Data-Acquisition-Method-for-3D-Gaussian-Splatting-using-Mobile-Phone/releases/download/v1/capturing.mp4?raw=1" type="video/mp4">
+<video controls playsinline width="720"
+  src="https://ghproxy.net/https://github.com/zyz-nwpu/An-Object-Centered-Data-Acquisition-Method-for-3D-Gaussian-Splatting-using-Mobile-Phone/releases/download/v1/capturing.mp4">
 </video>
 
 ### 🧱 Reconstruction result
-A representative rendering sequence generated from the captured data under the same training configuration.
-
-<video controls playsinline width="720">
-  <source src="https://github.com/zyz-nwpu/An-Object-Centered-Data-Acquisition-Method-for-3D-Gaussian-Splatting-using-Mobile-Phone/releases/download/v1/reconstruction_result.mp4?raw=1" type="video/mp4">
+<video controls playsinline width="720"
+  src="https://ghproxy.net/https://github.com/zyz-nwpu/An-Object-Centered-Data-Acquisition-Method-for-3D-Gaussian-Splatting-using-Mobile-Phone/releases/download/v1/reconstruction_result.mp4">
 </video>
 
 
