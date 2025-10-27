@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>3DGS Object-Centered Capture — Demo & Overview</title>
-  <meta name="description" content="Concise overview and demos for a mobile, object-centered capture workflow for 3D Gaussian Splatting (3DGS)." />
+  <meta name="description" content="Concise overview and demo for a mobile, object-centered capture workflow for 3D Gaussian Splatting (3DGS)." />
   <link rel="canonical" href="https://zyz-nwpu.github.io/An-Object-Centered-Data-Acquisition-Method-for-3D-Gaussian-Splatting-using-Mobile-Phone/" />
   <style>
     :root{
@@ -12,31 +12,34 @@
       --radius:14px; --pad:16px; --maxw:1100px;
     }
     *{box-sizing:border-box}
-    body{margin:0;font-family:system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;background:var(--bg);color:var(--fg);line-height:1.5;font-size:15px}
+    body{
+      margin:0;
+      font-family:system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
+      background:var(--bg);color:var(--fg);
+      line-height:1.7; /* ↑ 行间距更大 */
+      font-size:15px;
+    }
     a{color:#0b57d0;text-decoration:none}
     nav{position:sticky;top:0;z-index:10;background:#fff;border-bottom:1px solid var(--line)}
-    .navwrap{max-width:var(--maxw);margin:0 auto;padding:8px var(--pad);display:flex;gap:10px;flex-wrap:wrap;align-items:center;justify-content:space-between}
-    .btn{display:inline-block;padding:6px 10px;border:1px solid var(--line);border-radius:10px;background:#fff;color:var(--fg)}
+    .navwrap{max-width:var(--maxw);margin:0 auto;padding:10px var(--pad);display:flex;gap:10px;flex-wrap:wrap;align-items:center;justify-content:space-between}
+    .btn{display:inline-block;padding:7px 12px;border:1px solid var(--line);border-radius:10px;background:#fff;color:var(--fg)}
     .btn:hover{background:#fafafa}
-    .wrap{max-width:var(--maxw);margin:14px auto 22px;padding:0 var(--pad)}
-    .card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:14px;box-shadow:0 3px 12px rgba(0,0,0,.04);margin-bottom:12px}
-    h1{margin:0 0 6px;font-size:22px}
-    /* 紧凑的分节标题：图标与文字严格对齐 */
-    .hrow{display:flex;align-items:center;gap:8px;margin:6px 0}
+    .wrap{max-width:var(--maxw);margin:18px auto 26px;padding:0 var(--pad)}
+    .card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:16px;box-shadow:0 3px 12px rgba(0,0,0,.04);margin-bottom:14px}
+    h1{margin:0 0 8px;font-size:22px;line-height:1.35}
+    .hrow{display:flex;align-items:center;gap:8px;margin:8px 0}
     .hicon{width:22px;display:inline-flex;justify-content:center}
-    .htxt{font-size:18px;font-weight:600}
-    p{margin:6px 0}
-    ul{margin:6px 0 0 18px}
-    li{margin:3px 0}
-    .hr{height:1px;background:var(--line);margin:8px 0}
-    /* 两个视频横向排列；窄屏自动一列 */
-    .videos{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-    @media (max-width:780px){ .videos{grid-template-columns:1fr} }
+    .htxt{font-size:18px;font-weight:600;line-height:1.4}
+    p{margin:8px 0}
+    ul{margin:8px 0 0 20px}
+    li{margin:6px 0}
+    .hr{height:1px;background:var(--line);margin:10px 0}
+    /* 单个视频：居中显示，宽度自适应 */
     figure{margin:0;background:#fafafa;border:1px solid var(--line);border-radius:12px;overflow:hidden}
     .vid{display:block;width:100%;height:auto;background:#000}
-    figcaption{padding:8px 10px;font-size:14px;color:#333;border-top:1px solid var(--line);display:flex;align-items:center;gap:6px}
+    figcaption{padding:10px 12px;font-size:14px;color:#333;border-top:1px solid var(--line);display:flex;align-items:center;gap:6px}
     .muted{color:var(--muted);font-size:13px}
-    footer{margin:18px 0;color:var(--muted);font-size:13px;text-align:center}
+    footer{margin:20px 0;color:var(--muted);font-size:13px;text-align:center}
   </style>
 </head>
 <body>
@@ -48,13 +51,13 @@
         <a class="btn" href="https://github.com/zyz-nwpu/An-Object-Centered-Data-Acquisition-Method-for-3D-Gaussian-Splatting-using-Mobile-Phone">View Code</a>
         <a class="btn" href="https://github.com/zyz-nwpu/An-Object-Centered-Data-Acquisition-Method-for-3D-Gaussian-Splatting-using-Mobile-Phone/releases/tag/v1">Release v1</a>
       </div>
-      <div class="muted">Concise overview & demos</div>
+      <div class="muted">Overview & single demo</div>
     </div>
   </nav>
 
   <main class="wrap">
 
-    <!-- 标题 + 简述 -->
+    <!-- 标题 + 简述（加大行距版本） -->
     <section class="card">
       <h1>An Object-Centered Data Acquisition Method for 3D Gaussian Splatting using Mobile Phone</h1>
       <div class="hr"></div>
@@ -92,25 +95,16 @@
       </ul>
     </section>
 
-    <!-- 两个视频：横向排列 + 清晰标注 -->
+    <!-- 单个视频演示 -->
     <section class="card">
-      <div class="hrow"><span class="hicon">🎬</span><div class="htxt">Demo Videos</div></div>
-      <div class="videos">
-        <figure>
-          <video class="vid" controls autoplay muted loop playsinline preload="metadata"
-            src="https://github.com/zyz-nwpu/An-Object-Centered-Data-Acquisition-Method-for-3D-Gaussian-Splatting-using-Mobile-Phone/releases/download/v1/capturing.mp4">
-          </video>
-          <figcaption>📱 Capture (phone screen recording)</figcaption>
-        </figure>
-
-        <figure>
-          <video class="vid" controls autoplay muted loop playsinline preload="metadata"
-            src="https://github.com/zyz-nwpu/An-Object-Centered-Data-Acquisition-Method-for-3D-Gaussian-Splatting-using-Mobile-Phone/releases/download/v1/reconstruction_result.mp4">
-          </video>
-          <figcaption>🧱 Reconstruction result</figcaption>
-        </figure>
-      </div>
-      <p class="muted" style="margin-top:6px">Tip: videos are inline and labeled; see Release v1 for all assets.</p>
+      <div class="hrow"><span class="hicon">🎬</span><div class="htxt">Demo Video</div></div>
+      <figure>
+        <video class="vid" controls autoplay muted loop playsinline preload="metadata"
+          src="https://github.com/zyz-nwpu/An-Object-Centered-Data-Acquisition-Method-for-3D-Gaussian-Splatting-using-Mobile-Phone/releases/download/v1/capturing.mp4">
+        </video>
+        <figcaption>📱 Capture (phone screen recording)</figcaption>
+      </figure>
+      <p class="muted" style="margin-top:8px">Full assets are available on the Release page.</p>
     </section>
 
     <!-- APK / Release -->
