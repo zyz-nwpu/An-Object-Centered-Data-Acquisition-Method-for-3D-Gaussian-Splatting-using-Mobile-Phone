@@ -1,39 +1,97 @@
 <!doctype html>
-<html lang="en" style="--vid-scale:0.3; --lh:2.0;">
+<html lang="en" style="--media-h:260px; --lh:2.0;">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>3DGS Object-Centered Capture — Demo & Overview</title>
-  <meta name="description" content="Overview and demo for a mobile, object-centered capture workflow for 3D Gaussian Splatting (3DGS)." />
+  <meta name="description" content="Concise overview and single demo for a mobile, object-centered capture workflow for 3D Gaussian Splatting (3DGS)." />
+  <link rel="canonical" href="https://zyz-nwpu.github.io/An-Object-Centered-Data-Acquisition-Method-for-3D-Gaussian-Splatting-using-Mobile-Phone/" />
   <style>
-    :root{ --fg:#111; --muted:#666; --line:#eaeaea; --bg:#f7f7f7; --card:#fff;
-           --radius:14px; --pad:16px; --maxw:1100px; }
+    :root{
+      --fg:#111; --muted:#666; --line:#eaeaea; --bg:#f7f7f7; --card:#fff;
+      --radius:14px; --pad:16px; --maxw:1100px;
+    }
     *{box-sizing:border-box}
-    body{ margin:0; font-family:system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
-          color:var(--fg); background:var(--bg); line-height:var(--lh); font-size:15px; }
-    a{ color:#0b57d0; text-decoration:none }
-    .wrap{ max-width:var(--maxw); margin:18px auto 26px; padding:0 var(--pad) }
-    .card{ background:var(--card); border:1px solid var(--line); border-radius:var(--radius);
-           padding:16px; box-shadow:0 3px 12px rgba(0,0,0,.04); margin-bottom:14px }
-    h1{ margin:0 0 8px; font-size:22px; line-height:1.35 }
-    .hr{ height:1px; background:var(--line); margin:10px 0 }
-    .hrow{ display:flex; align-items:center; gap:8px; margin:8px 0 }
-    .hicon{ width:22px; display:inline-flex; justify-content:center }
-    .htxt{ font-size:18px; font-weight:600; line-height:1.4 }
-    p{ margin:8px 0 }
-    ul{ margin:8px 0 0 20px } li{ margin:6px 0 }
-    /* 同一框子里水平并排、等宽；小屏自动折行 */
-    .media-row{ display:grid; grid-template-columns:1fr 1fr; gap:16px; align-items:start }
-    @media (max-width: 820px){ .media-row{ grid-template-columns:1fr } }
-    .box{ background:#fafafa; border:1px solid var(--line); border-radius:12px; overflow:hidden; padding:10px }
-    .media{ width:100%; max-width:calc(640px * var(--vid-scale)); height:auto; display:block; background:#000 }
-    .title{ margin:8px 0 0 0; font-size:14px; color:#333 }
+    body{
+      margin:0;
+      font-family:system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
+      color:var(--fg); background:var(--bg);
+      line-height:var(--lh);
+      font-size:15px;
+    }
+    a{color:#0b57d0;text-decoration:none}
+    nav{position:sticky;top:0;z-index:10;background:#fff;border-bottom:1px solid var(--line)}
+    .navwrap{max-width:var(--maxw);margin:0 auto;padding:10px var(--pad);display:flex;gap:10px;flex-wrap:wrap;align-items:center;justify-content:space-between}
+    .btn{display:inline-block;padding:7px 12px;border:1px solid var(--line);border-radius:10px;background:#fff;color:var(--fg)}
+    .btn:hover{background:#fafafa}
+    .wrap{max-width:var(--maxw);margin:18px auto 26px;padding:0 var(--pad)}
+    .card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:16px;box-shadow:0 3px 12px rgba(0,0,0,.04);margin-bottom:14px}
+    h1{margin:0 0 8px;font-size:22px;line-height:1.35}
+    .hrow{display:flex;align-items:center;gap:8px;margin:8px 0}
+    .hicon{width:22px;display:inline-flex;justify-content:center}
+    .htxt{font-size:18px;font-weight:600;line-height:1.4}
+    p{margin:8px 0}
+    ul{margin:8px 0 0 20px}
+    li{margin:6px 0}
+    .hr{height:1px;background:var(--line);margin:10px 0}
+
+    /* ===== 媒体组合：图片+视频在同一个框，等高显示 ===== */
+    figure{margin:0;background:#fafafa;border:1px solid var(--line);border-radius:12px;overflow:hidden}
+    .media-combo{
+      display:flex;
+      flex-direction:column;
+    }
+    .media-track{
+      display:flex;
+      gap:12px;
+      padding:12px;
+      background:#000000;
+    }
+    .media-item{
+      flex:1 1 0;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      min-width:0; /* 防止溢出 */
+    }
+    .media-item > img,
+    .media-item > video{
+      height:var(--media-h);          /* 竖向长度一致 */
+      width:auto;                     /* 宽度自适应，保持比例 */
+      max-width:100%;                 /* 不超过各自容器宽度 */
+      object-fit:contain;             /* 不裁切不拉伸 */
+      display:block;
+      background:#000;
+      border-radius:8px;
+    }
+    figcaption{padding:10px 12px;font-size:14px;color:#333;border-top:1px solid var(--line);display:flex;gap:8px;flex-wrap:wrap}
+    .cap-badge{background:#fff;border:1px solid var(--line);border-radius:8px;padding:4px 8px}
+
+    /* 窄屏：上下排列 */
+    @media (max-width: 820px){
+      .media-track{flex-direction:column}
+    }
+
+    .muted{color:var(--muted);font-size:13px}
+    footer{margin:20px 0;color:var(--muted);font-size:13px;text-align:center}
   </style>
 </head>
 <body>
+
+  <!-- 顶部导航（已存在“View Code”“Release v1”，不新增其他按钮） -->
+  <nav>
+    <div class="navwrap">
+      <div style="display:flex;gap:8px;flex-wrap:wrap">
+        <a class="btn" href="https://github.com/zyz-nwpu/An-Object-Centered-Data-Acquisition-Method-for-3D-Gaussian-Splatting-using-Mobile-Phone">View Code</a>
+        <a class="btn" href="https://github.com/zyz-nwpu/An-Object-Centered-Data-Acquisition-Method-for-3D-Gaussian-Splatting-using-Mobile-Phone/releases/tag/v1">Release v1</a>
+      </div>
+      <div class="muted">Overview & demo</div>
+    </div>
+  </nav>
+
   <main class="wrap">
 
-    <!-- 文本说明（保留四段） -->
+    <!-- 标题 + 简述 -->
     <section class="card">
       <h1>An Object-Centered Data Acquisition Method for 3D Gaussian Splatting using Mobile Phone</h1>
       <div class="hr"></div>
@@ -42,15 +100,16 @@
       <p>
         A mobile, <strong>object-centered</strong> capture workflow for <strong>3D Gaussian Splatting (3DGS)</strong>.
         After a one-time calibration, device orientations align to a baseline; the camera forward vector is indexed on a
-        <strong>discretized spherical grid</strong>. <strong>Area-weighted</strong> coverage is computed in real time to mitigate polar bias,
-        and a <strong>stability gate</strong> based on smoothed IMU signals admits only steady frames. Images and poses are used for off-device 3DGS reconstruction.
+        <strong>discretized spherical grid</strong>. <strong>Area-weighted</strong> coverage guides motion in real time
+        to avoid polar bias, and a <strong>stability gate</strong> from smoothed IMU signals admits only steady frames.
+        Images and poses are used for off-device 3DGS reconstruction.
       </p>
 
       <div class="hrow"><span class="hicon">🧭</span><div class="htxt">Key Contributions</div></div>
       <ul>
         <li>IMU-based orientations mapped to an <strong>object-centered spherical</strong> coordinate system.</li>
         <li><strong>Real-time, area-weighted coverage</strong> feedback for uniform and complete viewpoints.</li>
-        <li><strong>Dual-signal stability gate</strong> (linear acceleration + angular velocity, smoothed) to keep steady frames.</li>
+        <li><strong>Dual-signal stability gate</strong> (linear acceleration + angular velocity, smoothed).</li>
       </ul>
 
       <div class="hrow"><span class="hicon">🧩</span><div class="htxt">System Outline</div></div>
@@ -70,23 +129,44 @@
       </ul>
     </section>
 
-    <!-- 同一个框子：视频 + 图片 水平并排、等宽 -->
+    <!-- Demo & Figure：合并为同一个框，视频与图片等高 -->
     <section class="card">
-      <div class="media-row">
-        <div class="box">
-          <video class="media" controls autoplay muted loop playsinline preload="metadata"
-            src="https://github.com/zyz-nwpu/An-Object-Centered-Data-Acquisition-Method-for-3D-Gaussian-Splatting-using-Mobile-Phone/releases/download/v1/capturing.mp4"></video>
-          <div class="title">📱 Capture (screen recording)</div>
-        </div>
+      <div class="hrow"><span class="hicon">🎬</span><div class="htxt">Demo & Figure</div></div>
 
-        <div class="box">
-          <!-- 你的图片文件在 docs/ 下，index.html 也在 docs/；因此用相对路径且做 URL 编码 -->
-          <img class="media" src="%E7%BB%98%E5%9B%BE1_01.png" alt="Figure">
-          <div class="title">🖼️ Figure</div>
+      <figure class="media-combo">
+        <div class="media-track">
+          <div class="media-item">
+            <video controls autoplay muted loop playsinline preload="metadata"
+              src="https://github.com/zyz-nwpu/An-Object-Centered-Data-Acquisition-Method-for-3D-Gaussian-Splatting-using-Mobile-Phone/releases/download/v1/capturing.mp4">
+            </video>
+          </div>
+          <div class="media-item">
+            <!-- 展示用：docs/绘图1_01.png，不提供下载链接 -->
+            <img src="docs/绘图1_01.png" alt="Paper preview figure (display-only)" />
+          </div>
         </div>
-      </div>
+        <figcaption>
+          <span class="cap-badge">📱 Capture (phone screen recording)</span>
+          <span class="cap-badge">📄 Method figure (display-only)</span>
+        </figcaption>
+      </figure>
+
+      <p class="muted" style="margin-top:8px">
+        Note: the PDF figure is shown as an image stored under <code>docs/</code> for display only (no download link).
+        You can adjust the equal height via the root CSS variable <code>--media-h</code>.
+      </p>
     </section>
 
+    <!-- Downloads：仅保留 Release 集合链接 -->
+    <section class="card">
+      <div class="hrow"><span class="hicon">📦</span><div class="htxt">Downloads</div></div>
+      <ul>
+        <li><a href="https://github.com/zyz-nwpu/An-Object-Centered-Data-Acquisition-Method-for-3D-Gaussian-Splatting-using-Mobile-Phone/releases/tag/v1">All assets in Release v1</a></li>
+      </ul>
+    </section>
+
+    <footer>© 2025 zyz-nwpu</footer>
   </main>
+
 </body>
 </html>
