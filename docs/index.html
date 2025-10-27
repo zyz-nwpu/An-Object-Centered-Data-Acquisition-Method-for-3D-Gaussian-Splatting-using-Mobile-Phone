@@ -10,6 +10,7 @@
     :root{
       --fg:#111; --muted:#666; --line:#eaeaea; --bg:#f7f7f7; --card:#fff;
       --radius:14px; --pad:16px; --maxw:1100px;
+      --vid-h: 360px;  /* default equal height for both videos */
     }
     *{box-sizing:border-box}
     body{
@@ -27,13 +28,13 @@
     .wrap{max-width:var(--maxw);margin:18px auto 26px;padding:0 var(--pad)}
     .card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:16px;box-shadow:0 3px 12px rgba(0,0,0,.04);margin-bottom:14px}
 
-    /* Title bigger */
+    /* Larger title */
     h1{margin:0 0 8px;font-size:30px;line-height:1.25}
 
     .hrow{display:flex;align-items:center;gap:8px;margin:8px 0}
     .hicon{width:22px;display:inline-flex;justify-content:center}
 
-    /* Section headings slightly bigger (applies to all, including Demo & Figure) */
+    /* Section headings enlarged (applies to Demo & Figure, etc.) */
     .htxt{font-size:20px;font-weight:600;line-height:1.4}
 
     p{margin:8px 0}
@@ -43,7 +44,7 @@
     .muted{color:var(--muted);font-size:13px}
     footer{margin:20px 0;color:var(--muted);font-size:13px;text-align:center}
 
-    /* Media blocks (stacked) */
+    /* Media blocks */
     figure{margin:0;background:#fff;border:1px solid var(--line);border-radius:12px;overflow:hidden}
     .media-block{padding:12px}
     .media-block img,
@@ -53,36 +54,8 @@
       background:#fff;
     }
 
-    /* Remove default bottom captions (we place descriptions above media) */
+    /* We place descriptions ABOVE media */
     figcaption{display:none}
-
-    /* A) Proportional control by WIDTH (recommended) */
-    .is-figure .media-block img{
-      width: var(--fig-w, 100%);  /* e.g., 720px or 80% */
-      max-width: 100%;
-      height: auto;
-    }
-    .is-video .media-block video{
-      width: var(--vid-w, 100%);  /* e.g., 560px or 70% */
-      max-width: 100%;
-      height: auto;
-    }
-
-    /* B) Proportional control by HEIGHT (same visual height)
-       Add class 'equal-height' on the figure and set --media-h.
-       Change object-fit to 'cover' if you want fill (with cropping). */
-    .equal-height .media-block img,
-    .equal-height .media-block video{
-      height: var(--media-h, 360px);
-      width: auto;
-      max-width: 100%;
-      object-fit: contain;
-    }
-
-    /* Center media when using fixed widths/heights */
-    .media-block{ display:flex; justify-content:center; }
-
-    /* Description blocks placed ABOVE media */
     .media-desc{
       margin: 0 0 10px 0;
       padding: 10px 12px;
@@ -91,6 +64,56 @@
       border-radius:10px;
       font-size:14px;
       color:#333;
+    }
+
+    /* A) Image width-based scaling (as before) */
+    .is-figure .media-block img{
+      width: var(--fig-w, 100%);   /* e.g., 760px or 80% */
+      max-width: 100%;
+      height: auto;
+    }
+
+    /* === Two videos side-by-side === */
+    .videos-intro{ margin:12px 0; }
+    .video-grid{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:16px;
+      padding:4px; /* visual spacing inside the card */
+    }
+    @media (max-width: 900px){
+      .video-grid{ grid-template-columns: 1fr; }
+    }
+
+    .video-cell{
+      border:1px solid var(--line);
+      border-radius:12px;
+      padding:12px;
+      background:#fff;
+      display:flex;
+      flex-direction:column;
+      gap:10px;
+    }
+    .video-title{
+      font-size:16px;
+      font-weight:600;
+      line-height:1.3;
+    }
+    .video-frame{
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      border-radius:10px;
+      overflow:hidden;
+      background:#fff;
+      height: var(--vid-h);   /* equal height for both videos */
+    }
+    .video-frame > video{
+      height:100%;
+      width:auto;
+      max-width:100%;
+      object-fit: contain;    /* change to 'cover' to fill with cropping */
+      display:block;
     }
   </style>
 </head>
@@ -166,25 +189,33 @@
         </div>
       </figure>
 
-      <!-- 2) Capture demo video (second item) -->
-      <figure class="is-video" style="--vid-w: 380px; margin-top:12px;">
-        <!-- Description ABOVE the video -->
-        <div class="media-desc">
-          <strong>Capture demo.</strong> Phone screen recording showing live coverage progress and the stability-gate status
-          while moving around the object to achieve uniform, complete viewpoints.
-        </div>
-        <div class="media-block">
-          <video controls autoplay muted loop playsinline preload="metadata"
-            src="https://github.com/zyz-nwpu/An-Object-Centered-Data-Acquisition-Method-for-3D-Gaussian-Splatting-using-Mobile-Phone/releases/download/v1/capturing.mp4">
-          </video>
-        </div>
-      </figure>
+      <!-- 2) Paired videos (side-by-side) -->
+      <div class="videos-intro media-desc">
+        <strong>Two videos:</strong> the left video records the <em>capture process</em> with real-time coverage and stability indicators;
+        the right video shows the <em>reconstruction result</em> rendered from the collected images and poses.
+      </div>
 
-      <!-- Example (optional): make both equal height instead of width
-      <figure class="is-figure equal-height" style="--media-h: 400px;"></figure>
-      <figure class="is-video equal-height"  style="--media-h: 400px;"></figure>
-      -->
+      <div class="video-grid">
+        <!-- Left: Capture process -->
+        <div class="video-cell">
+          <div class="video-title">Capture Process (screen recording)</div>
+          <div class="video-frame">
+            <video controls autoplay muted loop playsinline preload="metadata"
+              src="https://github.com/zyz-nwpu/An-Object-Centered-Data-Acquisition-Method-for-3D-Gaussian-Splatting-using-Mobile-Phone/releases/download/v1/capturing.mp4">
+            </video>
+          </div>
+        </div>
 
+        <!-- Right: Reconstruction result -->
+        <div class="video-cell">
+          <div class="video-title">Reconstruction Result (3DGS)</div>
+          <div class="video-frame">
+            <video controls autoplay muted loop playsinline preload="metadata"
+              src="https://github.com/zyz-nwpu/An-Object-Centered-Data-Acquisition-Method-for-3D-Gaussian-Splatting-using-Mobile-Phone/releases/download/v1/recon.mp4">
+            </video>
+          </div>
+        </div>
+      </div>
     </section>
 
     <!-- Downloads -->
