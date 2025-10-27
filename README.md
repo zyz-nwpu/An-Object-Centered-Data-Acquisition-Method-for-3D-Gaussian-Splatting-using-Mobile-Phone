@@ -38,12 +38,18 @@ Mobile capture was conducted on a **Redmi K70 Pro** with angle logging and stabi
   <tr>
     <td align="center">
       <a href="https://youtube.com/shorts/GgPkMm6d0oE?si=PkVgUXQWkA1ipRn0">
-        <img src="https://img.youtube.com/vi/GgPkMm6d0oE/hqdefault.jpg" width="360" alt="Capture demo">
+        <img
+          src="https://img.youtube.com/vi/GgPkMm6d0oE/hqdefault.jpg"
+          alt="Capture demo"
+          style="width: 360px; aspect-ratio: 9 / 16; object-fit: cover; border-radius: 10px;"/>
       </a>
     </td>
     <td align="center">
-      <a href="https://youtube.com/shorts/sPfwAv5vNBw?feature=share">
-        <img src="https://img.youtube.com/vi/sPfwAv5vNBw/hqdefault.jpg" width="360" alt="Reconstruction demo">
+      <a href="https://youtube.com/shorts/sPfwAv5vNBw">
+        <img
+          src="https://img.youtube.com/vi/sPfwAv5vNBw/hqdefault.jpg"
+          alt="Reconstruction demo"
+          style="width: 360px; aspect-ratio: 9 / 16; object-fit: cover; border-radius: 10px;"/>
       </a>
     </td>
   </tr>
