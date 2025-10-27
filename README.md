@@ -30,23 +30,8 @@ Mobile capture was conducted on a **Redmi K70 Pro** with angle logging and stabi
 
 ## 🎬 Demo & Showcase
 
-### 📱 Capture (phone screen recording)
-<iframe width="720" height="405"
-  src="https://www.youtube.com/embed/e6GoFhkhc5o"
-  title="Capture Demo"
-  frameborder="0"
-  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-  allowfullscreen>
-</iframe>
-
-### 🧱 Reconstruction result
-<iframe width="720" height="405"
-  src="https://www.youtube.com/embed/sPfwAv5vNBw"
-  title="Reconstruction Demo"
-  frameborder="0"
-  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-  allowfullscreen>
-</iframe>
-
+| 📱 Capture (phone screen recording) | 🧱 Reconstruction result |
+| --- | --- |
+| [![Capture](https://img.youtube.com/vi/e6GoFhkhc5o/hqdefault.jpg)](https://www.youtube.com/shorts/e6GoFhkhc5o) | [![Reconstruction](https://img.youtube.com/vi/sPfwAv5vNBw/hqdefault.jpg)](https://www.youtube.com/shorts/sPfwAv5vNBw) |
 
 
