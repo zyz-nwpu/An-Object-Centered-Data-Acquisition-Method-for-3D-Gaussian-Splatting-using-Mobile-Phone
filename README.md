@@ -24,7 +24,7 @@ This repository accompanies a method for mobile, object-centered multiview data 
 ---
 
 ## 🧪 Experimental Setting (brief)
-Mobile capture was conducted on a consumer smartphone with angle logging and stability gating enabled. Off-device reconstruction employed 3DGS on a workstation GPU. Evaluation used a tabletop object for analysis and visualization.
+Mobile capture was conducted on a **Redmi K70 Pro** with angle logging and stability gating enabled. Off-device reconstruction employed **3D Gaussian Splatting (3DGS)** on a workstation equipped with an **NVIDIA RTX 5090D**. Evaluation used a tabletop object for analysis and visualization.
 
 ---
 
