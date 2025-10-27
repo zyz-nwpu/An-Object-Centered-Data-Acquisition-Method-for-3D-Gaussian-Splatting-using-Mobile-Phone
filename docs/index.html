@@ -10,7 +10,7 @@
     :root{
       --fg:#111; --muted:#666; --line:#eaeaea; --bg:#f7f7f7; --card:#fff;
       --radius:14px; --pad:16px; --maxw:1100px;
-      --vid-h: 360px;  /* default equal height for both videos */
+      --vid-h: 420px;  /* enlarged equal height for both videos */
     }
     *{box-sizing:border-box}
     body{
@@ -66,20 +66,20 @@
       color:#333;
     }
 
-    /* A) Image width-based scaling (as before) */
+    /* Image width-based scaling */
     .is-figure .media-block img{
       width: var(--fig-w, 100%);   /* e.g., 760px or 80% */
       max-width: 100%;
       height: auto;
     }
 
-    /* === Two videos side-by-side === */
+    /* Two videos side-by-side */
     .videos-intro{ margin:12px 0; }
     .video-grid{
       display:grid;
       grid-template-columns: 1fr 1fr;
       gap:16px;
-      padding:4px; /* visual spacing inside the card */
+      padding:4px;
     }
     @media (max-width: 900px){
       .video-grid{ grid-template-columns: 1fr; }
@@ -98,6 +98,7 @@
       font-size:16px;
       font-weight:600;
       line-height:1.3;
+      text-align:center;   /* center the title text */
     }
     .video-frame{
       display:flex;
@@ -106,13 +107,13 @@
       border-radius:10px;
       overflow:hidden;
       background:#fff;
-      height: var(--vid-h);   /* equal height for both videos */
+      height: var(--vid-h);   /* bigger videos */
     }
     .video-frame > video{
       height:100%;
       width:auto;
       max-width:100%;
-      object-fit: contain;    /* change to 'cover' to fill with cropping */
+      object-fit: contain;
       display:block;
     }
   </style>
@@ -174,9 +175,8 @@
     <section class="card">
       <div class="hrow"><span class="hicon">🎬</span><div class="htxt">Demo & Figure</div></div>
 
-      <!-- 1) Method figure (first item) -->
+      <!-- Method figure -->
       <figure class="is-figure" style="--fig-w: 760px;">
-        <!-- Description ABOVE the image -->
         <div class="media-desc">
           <strong>Method figure.</strong> A compact summary of our <em>object-centered</em> mobile capture loop:
           a one-time calibration, real-time indexing of the camera forward vector on a <em>discretized spherical grid</em>,
@@ -189,7 +189,7 @@
         </div>
       </figure>
 
-      <!-- 2) Paired videos (side-by-side) -->
+      <!-- Two videos side-by-side -->
       <div class="videos-intro media-desc">
         <strong>Two videos:</strong> the left video records the <em>capture process</em> with real-time coverage and stability indicators;
         the right video shows the <em>reconstruction result</em> rendered from the collected images and poses.
