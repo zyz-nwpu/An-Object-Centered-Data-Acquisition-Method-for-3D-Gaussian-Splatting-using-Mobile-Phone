@@ -31,14 +31,22 @@ Mobile capture was conducted on a **Redmi K70 Pro** with angle logging and stabi
 ## 🎬 Demo & Showcase
 
 ### 📱 Capture (phone screen recording)
-<video controls playsinline width="720">
-  <source src="https://raw.githubusercontent.com/zyz-nwpu/An-Object-Centered-Data-Acquisition-Method-for-3D-Gaussian-Splatting-using-Mobile-Phone/main/docs/capturing.mp4" type="video/mp4">
-</video>
+<iframe width="720" height="405"
+  src="https://www.youtube.com/embed/e6GoFhkhc5o"
+  title="Capture Demo"
+  frameborder="0"
+  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+  allowfullscreen>
+</iframe>
 
 ### 🧱 Reconstruction result
-<video controls playsinline width="720">
-  <source src="https://raw.githubusercontent.com/zyz-nwpu/An-Object-Centered-Data-Acquisition-Method-for-3D-Gaussian-Splatting-using-Mobile-Phone/main/docs/reconstruction_result.mp4" type="video/mp4">
-</video>
+<iframe width="720" height="405"
+  src="https://www.youtube.com/embed/sPfwAv5vNBw"
+  title="Reconstruction Demo"
+  frameborder="0"
+  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+  allowfullscreen>
+</iframe>
 
 
 
