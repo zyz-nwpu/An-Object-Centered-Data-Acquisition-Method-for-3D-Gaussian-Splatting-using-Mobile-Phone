@@ -3,123 +3,123 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>An Object-Centered Data Acquisition Method for 3D Gaussian Splatting using Mobile Phone — Demos & Overview</title>
-  <meta name="description" content="Overview, method outline, experimental setting, and demo videos for the mobile, object-centered capture workflow for 3D Gaussian Splatting." />
+  <title>3DGS Object-Centered Capture — Demo & Overview</title>
+  <meta name="description" content="Concise overview and demos for a mobile, object-centered capture workflow for 3D Gaussian Splatting (3DGS)." />
   <link rel="canonical" href="https://zyz-nwpu.github.io/An-Object-Centered-Data-Acquisition-Method-for-3D-Gaussian-Splatting-using-Mobile-Phone/" />
   <style>
     :root{
       --fg:#111; --muted:#666; --line:#eaeaea; --bg:#f7f7f7; --card:#fff;
       --radius:14px; --pad:16px; --maxw:1100px;
-      --video-maxw:380px;
     }
     *{box-sizing:border-box}
-    body{margin:0;font-family:system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;background:var(--bg);color:var(--fg);line-height:1.6}
-    a{color:#0b57d0}
+    body{margin:0;font-family:system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;background:var(--bg);color:var(--fg);line-height:1.5;font-size:15px}
+    a{color:#0b57d0;text-decoration:none}
     nav{position:sticky;top:0;z-index:10;background:#fff;border-bottom:1px solid var(--line)}
-    .navwrap{max-width:var(--maxw);margin:0 auto;padding:10px var(--pad);display:flex;gap:10px;flex-wrap:wrap;align-items:center;justify-content:space-between}
-    .btn{display:inline-block;padding:8px 12px;border:1px solid var(--line);border-radius:10px;text-decoration:none;color:var(--fg);background:#fff}
+    .navwrap{max-width:var(--maxw);margin:0 auto;padding:8px var(--pad);display:flex;gap:10px;flex-wrap:wrap;align-items:center;justify-content:space-between}
+    .btn{display:inline-block;padding:6px 10px;border:1px solid var(--line);border-radius:10px;background:#fff;color:var(--fg)}
     .btn:hover{background:#fafafa}
-    .wrap{max-width:var(--maxw);margin:16px auto 24px;padding:0 var(--pad)}
-    .card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:20px;box-shadow:0 4px 16px rgba(0,0,0,.04);margin-bottom:16px}
-    h1{margin:0 0 10px;font-size:26px}
-    h2{margin:12px 0 8px;font-size:20px}
-    h3{margin:10px 0 6px;font-size:17px}
-    p.lead{margin:0 0 12px;color:var(--muted)}
-    ul{margin:8px 0 8px 18px}
-    .notice{background:#fff8e1;border:1px solid #ffe0a3;color:#8a6d1a;border-radius:12px;padding:10px 12px;margin:12px 0}
-    .video-wrap{display:flex;flex-direction:column;align-items:center;gap:8px}
-    .video{width:100%;max-width:var(--video-maxw);background:#000;border-radius:12px}
-    .dl{display:inline-block;background:#111;color:#fff;text-decoration:none;padding:10px 14px;border-radius:12px}
-    .dl:hover{opacity:.9}
-    .row{display:grid;grid-template-columns:1fr;gap:16px}
-    @media (min-width: 980px){
-      .row{grid-template-columns:1fr 1fr}
-    }
-    footer{margin:24px 0;color:var(--muted);font-size:14px;text-align:center}
-    .hr{height:1px;background:var(--line);margin:12px 0}
+    .wrap{max-width:var(--maxw);margin:14px auto 22px;padding:0 var(--pad)}
+    .card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:14px;box-shadow:0 3px 12px rgba(0,0,0,.04);margin-bottom:12px}
+    h1{margin:0 0 6px;font-size:22px}
+    /* 紧凑的分节标题：图标与文字严格对齐 */
+    .hrow{display:flex;align-items:center;gap:8px;margin:6px 0}
+    .hicon{width:22px;display:inline-flex;justify-content:center}
+    .htxt{font-size:18px;font-weight:600}
+    p{margin:6px 0}
+    ul{margin:6px 0 0 18px}
+    li{margin:3px 0}
+    .hr{height:1px;background:var(--line);margin:8px 0}
+    /* 两个视频横向排列；窄屏自动一列 */
+    .videos{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+    @media (max-width:780px){ .videos{grid-template-columns:1fr} }
+    figure{margin:0;background:#fafafa;border:1px solid var(--line);border-radius:12px;overflow:hidden}
+    .vid{display:block;width:100%;height:auto;background:#000}
+    figcaption{padding:8px 10px;font-size:14px;color:#333;border-top:1px solid var(--line);display:flex;align-items:center;gap:6px}
+    .muted{color:var(--muted);font-size:13px}
+    footer{margin:18px 0;color:var(--muted);font-size:13px;text-align:center}
   </style>
 </head>
 <body>
 
-  <!-- Top nav -->
+  <!-- 顶部导航 -->
   <nav>
     <div class="navwrap">
       <div style="display:flex;gap:8px;flex-wrap:wrap">
-        <a class="btn" href="https://github.com/zyz-nwpu/An-Object-Centered-Data-Acquisition-Method-for-3D-Gaussian-Splatting-using-Mobile-Phone">View Code on GitHub</a>
-        <a class="btn" href="https://github.com/zyz-nwpu/An-Object-Centered-Data-Acquisition-Method-for-3D-Gaussian-Splatting-using-Mobile-Phone/releases/tag/v1">Open Release v1</a>
+        <a class="btn" href="https://github.com/zyz-nwpu/An-Object-Centered-Data-Acquisition-Method-for-3D-Gaussian-Splatting-using-Mobile-Phone">View Code</a>
+        <a class="btn" href="https://github.com/zyz-nwpu/An-Object-Centered-Data-Acquisition-Method-for-3D-Gaussian-Splatting-using-Mobile-Phone/releases/tag/v1">Release v1</a>
       </div>
-      <div style="font-size:12px;color:#888">Overview + compact previews</div>
+      <div class="muted">Concise overview & demos</div>
     </div>
   </nav>
 
   <main class="wrap">
 
-    <!-- ======= README textual content moved to the front ======= -->
+    <!-- 标题 + 简述 -->
     <section class="card">
       <h1>An Object-Centered Data Acquisition Method for 3D Gaussian Splatting using Mobile Phone</h1>
       <div class="hr"></div>
 
-      <h2>🔎 Overview</h2>
-      <p>This page accompanies a method for mobile, object-centered multiview data acquisition tailored to 3D Gaussian Splatting (3DGS). The workflow establishes an object-centered spherical coordinate framework for capture on smartphones. After a one-time calibration, device orientations are aligned to a baseline reference and the camera forward direction is mapped to a discretized spherical grid for viewpoint indexing. To counter polar sampling bias, area-weighted spherical coverage is computed in real time to guide motion. A stability gate, based on smoothed inertial measurements, admits only steady-motion frames. The collected images and poses are intended for off-device 3DGS reconstruction.</p>
+      <div class="hrow"><span class="hicon">🔎</span><div class="htxt">Overview</div></div>
+      <p>
+        A mobile, <strong>object-centered</strong> capture workflow for <strong>3D Gaussian Splatting (3DGS)</strong>.
+        After a one-time calibration, device orientations align to a baseline; the camera forward vector is indexed on a
+        <strong>discretized spherical grid</strong>. <strong>Area-weighted</strong> coverage guides motion in real time
+        to avoid polar bias, and a <strong>stability gate</strong> from smoothed IMU signals admits only steady frames.
+        Images and poses are used for off-device 3DGS reconstruction.
+      </p>
 
-      <h2>🧭 Key Contributions</h2>
+      <div class="hrow"><span class="hicon">🧭</span><div class="htxt">Key Contributions</div></div>
       <ul>
-        <li>Mapping mobile IMU-based orientations to an object-centered spherical coordinate system.</li>
-        <li>Real-time, area-weighted spherical coverage feedback that encourages angular uniformity and completeness.</li>
-        <li>A dual-mode stability gate using smoothed linear acceleration and angular velocity so that only steady frames are recorded.</li>
+        <li>IMU-based orientations mapped to an <strong>object-centered spherical</strong> coordinate system.</li>
+        <li><strong>Real-time, area-weighted coverage</strong> feedback for uniform and complete viewpoints.</li>
+        <li><strong>Dual-signal stability gate</strong> (linear acceleration + angular velocity, smoothed) for steady frames.</li>
       </ul>
 
-      <h2>🧩 System Outline</h2>
+      <div class="hrow"><span class="hicon">🧩</span><div class="htxt">System Outline</div></div>
       <ul>
-        <li><strong>Calibration.</strong> Record a baseline device orientation once; subsequent orientations are referenced relatively to ensure consistency across trials.</li>
-        <li><strong>Pose sensing.</strong> During capture, the device logs orientation (quaternion), linear acceleration, and angular velocity.</li>
-        <li><strong>Stability gating.</strong> Exponential moving averages of the acceleration and angular velocity magnitudes are compared with thresholds over a holding window; frames outside steady conditions are discarded.</li>
-        <li><strong>Spherical mapping.</strong> The camera’s forward direction is projected onto a longitude–latitude grid; normalized angles are quantized to grid indices for online coverage bookkeeping.</li>
-        <li><strong>Area-weighted coverage.</strong> Coverage accumulation uses spherical surface-area weighting to avoid overestimation near the poles; morphological refinements (adaptive pole dilation and hole filling) improve local consistency without altering the area-weighted measure.</li>
+        <li><strong>Calibration:</strong> record a baseline orientation; later poses are referenced relatively.</li>
+        <li><strong>Pose sensing:</strong> log quaternion orientation, linear acceleration, and angular velocity.</li>
+        <li><strong>Stability gating:</strong> exponential averages vs. thresholds over a holding window; discard unsteady frames.</li>
+        <li><strong>Spherical mapping:</strong> project optical axis to lon–lat; quantize to grid indices and update online.</li>
+        <li><strong>Area-weighted coverage:</strong> accumulate by spherical surface area; light morphological refinements (adaptive pole dilation, hole filling) without changing the weighted measure.</li>
       </ul>
 
-      <h2>🧪 Experimental Setting (brief)</h2>
-      <p>Mobile capture was conducted on a <strong>Redmi K70 Pro</strong> with angle logging and stability gating enabled. Off-device reconstruction employed <strong>3D Gaussian Splatting (3DGS)</strong> on a workstation equipped with an <strong>NVIDIA RTX 5090D</strong>. Evaluation used a tabletop object for analysis and visualization.</p>
+      <div class="hrow"><span class="hicon">🧪</span><div class="htxt">Experimental Setting</div></div>
+      <ul>
+        <li><strong>Device:</strong> Redmi K70 Pro (angle logging & stability gating)</li>
+        <li><strong>Reconstruction:</strong> 3DGS on NVIDIA RTX 5090D</li>
+        <li><strong>Evaluation:</strong> tabletop objects for analysis and visualization</li>
+      </ul>
     </section>
 
-    <!-- ======= Demo videos & downloads (kept as you provided) ======= -->
+    <!-- 两个视频：横向排列 + 清晰标注 -->
     <section class="card">
-      <h2>🎥 Capturing workflow</h2>
-      <div class="video-wrap">
-        <video class="video" controls autoplay muted loop playsinline preload="metadata"
-          src="https://github.com/zyz-nwpu/An-Object-Centered-Data-Acquisition-Method-for-3D-Gaussian-Splatting-using-Mobile-Phone/releases/download/v1/capturing.mp4">
-          Your browser does not support HTML5 video.
-        </video>
-        <a class="dl" href="https://github.com/zyz-nwpu/An-Object-Centered-Data-Acquisition-Method-for-3D-Gaussian-Splatting-using-Mobile-Phone/releases/download/v1/capturing.mp4">⬇️ Download capturing.mp4</a>
+      <div class="hrow"><span class="hicon">🎬</span><div class="htxt">Demo Videos</div></div>
+      <div class="videos">
+        <figure>
+          <video class="vid" controls autoplay muted loop playsinline preload="metadata"
+            src="https://github.com/zyz-nwpu/An-Object-Centered-Data-Acquisition-Method-for-3D-Gaussian-Splatting-using-Mobile-Phone/releases/download/v1/capturing.mp4">
+          </video>
+          <figcaption>📱 Capture (phone screen recording)</figcaption>
+        </figure>
+
+        <figure>
+          <video class="vid" controls autoplay muted loop playsinline preload="metadata"
+            src="https://github.com/zyz-nwpu/An-Object-Centered-Data-Acquisition-Method-for-3D-Gaussian-Splatting-using-Mobile-Phone/releases/download/v1/reconstruction_result.mp4">
+          </video>
+          <figcaption>🧱 Reconstruction result</figcaption>
+        </figure>
       </div>
+      <p class="muted" style="margin-top:6px">Tip: videos are inline and labeled; see Release v1 for all assets.</p>
     </section>
 
+    <!-- APK / Release -->
     <section class="card">
-      <h2>🎥 Reconstruction result</h2>
-      <div class="video-wrap">
-        <video class="video" controls autoplay muted loop playsinline preload="metadata"
-          src="https://github.com/zyz-nwpu/An-Object-Centered-Data-Acquisition-Method-for-3D-Gaussian-Splatting-using-Mobile-Phone/releases/download/v1/reconstruction_result.mp4">
-          Your browser does not support HTML5 video.
-        </video>
-        <a class="dl" href="https://github.com/zyz-nwpu/An-Object-Centered-Data-Acquisition-Method-for-3D-Gaussian-Splatting-using-Mobile-Phone/releases/download/v1/reconstruction_result.mp4">⬇️ Download reconstruction_result.mp4</a>
-      </div>
-    </section>
-
-    <!-- APK (kept) -->
-    <section class="card">
-      <h2>📦 Android APK</h2>
-      <div class="row">
-        <div>
-          <p class="lead" style="margin-top:0">Try the app on your Android device (debug build for demo purposes).</p>
-          <a class="dl" href="https://github.com/zyz-nwpu/An-Object-Centered-Data-Acquisition-Method-for-3D-Gaussian-Splatting-using-Mobile-Phone/releases/download/v1/camera-6-core-debug.apk">
-            ⬇️ Download camera-6-core-debug.apk
-          </a>
-        </div>
-        <div>
-          <p class="lead">See all files in the Release:</p>
-          <a class="btn" href="https://github.com/zyz-nwpu/An-Object-Centered-Data-Acquisition-Method-for-3D-Gaussian-Splatting-using-Mobile-Phone/releases/tag/v1">Open Release v1</a>
-        </div>
-      </div>
+      <div class="hrow"><span class="hicon">📦</span><div class="htxt">Downloads</div></div>
+      <ul>
+        <li><a href="https://github.com/zyz-nwpu/An-Object-Centered-Data-Acquisition-Method-for-3D-Gaussian-Splatting-using-Mobile-Phone/releases/download/v1/camera-6-core-debug.apk"><strong>camera-6-core-debug.apk</strong></a></li>
+        <li><a href="https://github.com/zyz-nwpu/An-Object-Centered-Data-Acquisition-Method-for-3D-Gaussian-Splatting-using-Mobile-Phone/releases/tag/v1">All assets in Release v1</a></li>
+      </ul>
     </section>
 
     <footer>© 2025 zyz-nwpu</footer>
