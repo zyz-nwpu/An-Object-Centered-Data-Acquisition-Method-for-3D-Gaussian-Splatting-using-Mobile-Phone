@@ -28,15 +28,26 @@ Mobile capture was conducted on a **Redmi K70 Pro** with angle logging and stabi
 
 ---
 
-## 🎬 Demo & Showcase (placeholders)
-- **Interface & workflow screenshots**  
-  Add assets under `docs/` and reference them here:  
-  `![Capture UI](docs/ui.png)`  
-  `![Spherical Grid](docs/grid.png)`
+## 🎬 Demo & Showcase
 
-- **Short clip / live capture**  
-  Optional MP4 or GIF placed in `docs/` or linked externally:  
-  `[Demo video](docs/demo.mp4)`
+### 📱 Capture — phone screen recording
+<video
+  src="https://github.com/zyz-nwpu/An-Object-Centered-Data-Acquisition-Method-for-3D-Gaussian-Splatting-using-Mobile-Phone/releases/download/v1/capturing.mp4"
+  controls
+  width="720">
+</video>
+
+[Download MP4](https://github.com/zyz-nwpu/An-Object-Centered-Data-Acquisition-Method-for-3D-Gaussian-Splatting-using-Mobile-Phone/releases/download/v1/capturing.mp4)
+
+### 🧱 Reconstruction result
+<video
+  src="https://github.com/zyz-nwpu/An-Object-Centered-Data-Acquisition-Method-for-3D-Gaussian-Splatting-using-Mobile-Phone/releases/download/v1/reconstruction_result.mp4"
+  controls
+  width="720">
+</video>
+
+[Download MP4](https://github.com/zyz-nwpu/An-Object-Centered-Data-Acquisition-Method-for-3D-Gaussian-Splatting-using-Mobile-Phone/releases/download/v1/reconstruction_result.mp4)
+
 
 - **Reconstruction views**  
   Side-by-side renderings at matched viewpoints as in the manuscript:  
