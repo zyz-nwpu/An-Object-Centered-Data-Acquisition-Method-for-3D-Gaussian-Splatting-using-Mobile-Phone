@@ -26,10 +26,16 @@
     .btn:hover{background:#fafafa}
     .wrap{max-width:var(--maxw);margin:18px auto 26px;padding:0 var(--pad)}
     .card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:16px;box-shadow:0 3px 12px rgba(0,0,0,.04);margin-bottom:14px}
-    h1{margin:0 0 8px;font-size:22px;line-height:1.35}
+
+    /* Title bigger */
+    h1{margin:0 0 8px;font-size:30px;line-height:1.25}
+
     .hrow{display:flex;align-items:center;gap:8px;margin:8px 0}
     .hicon{width:22px;display:inline-flex;justify-content:center}
-    .htxt{font-size:18px;font-weight:600;line-height:1.4}
+
+    /* Section headings slightly bigger */
+    .htxt{font-size:20px;font-weight:600;line-height:1.4}
+
     p{margin:8px 0}
     ul{margin:8px 0 0 20px}
     li{margin:6px 0}
@@ -48,7 +54,7 @@
     }
     figcaption{padding:10px 12px;font-size:14px;color:#333;border-top:1px solid var(--line)}
 
-    /* === A) Proportional control by WIDTH (recommended) === */
+    /* A) Proportional control by WIDTH (recommended) */
     .is-figure .media-block img{
       width: var(--fig-w, 100%);  /* e.g., 720px or 80% */
       max-width: 100%;
@@ -60,7 +66,7 @@
       height: auto;
     }
 
-    /* === B) Proportional control by HEIGHT (same visual height) ===
+    /* B) Proportional control by HEIGHT (same visual height)
        Add class 'equal-height' on the figure and set --media-h.
        Change object-fit to 'cover' if you want fill (with cropping). */
     .equal-height .media-block img,
@@ -73,6 +79,17 @@
 
     /* Center media when using fixed widths/heights */
     .media-block{ display:flex; justify-content:center; }
+
+    /* Image description above image */
+    .media-desc{
+      margin: 0 0 10px 0;
+      padding: 10px 12px;
+      background:#fff;
+      border:1px solid var(--line);
+      border-radius:10px;
+      font-size:14px;
+      color:#333;
+    }
   </style>
 </head>
 <body>
@@ -136,16 +153,19 @@
       <!-- WIDTH-based scaling by default: set --fig-w -->
       <!-- To use equal heights instead, add class 'equal-height' and set --media-h -->
       <figure class="is-figure" style="--fig-w: 760px;">
+        <!-- Description ABOVE the image -->
+        <div class="media-desc">
+          <strong>Method figure.</strong> A compact summary of our <em>object-centered</em> mobile capture loop:
+          a one-time calibration, real-time indexing of the camera forward vector on a <em>discretized spherical grid</em>,
+          <em>area-weighted</em> coverage feedback to guide motion uniformly, and a <em>stability gate</em> that filters
+          shaky frames via smoothed IMU signals. This mirrors the method section in the PDF and clarifies the inputs and
+          closed-loop feedback used for 3DGS reconstruction.
+        </div>
         <div class="media-block">
           <!-- index.html and image are in the same folder -->
           <img src="./绘图1_01.png" alt="Method figure (display-only)" loading="lazy">
         </div>
-        <figcaption>
-          <strong>Method figure.</strong> A compact summary of our <em>object-centered</em> mobile capture loop: a one-time calibration,
-          real-time indexing of the camera forward vector on a <em>discretized spherical grid</em>, <em>area-weighted</em> coverage feedback
-          to guide motion uniformly, and a <em>stability gate</em> that filters shaky frames via smoothed IMU signals.
-          This mirrors the method section in the PDF and clarifies the inputs and closed-loop feedback used for 3DGS reconstruction.
-        </figcaption>
+        <!-- No figcaption under the image anymore -->
       </figure>
 
       <!-- 2) Capture demo video (second item) -->
