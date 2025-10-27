@@ -1,10 +1,10 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" style="--vid-scale:0.5; --lh:1.9;">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>3DGS Object-Centered Capture — Demo & Overview</title>
-  <meta name="description" content="Concise overview and demo for a mobile, object-centered capture workflow for 3D Gaussian Splatting (3DGS)." />
+  <meta name="description" content="Concise overview and single demo for a mobile, object-centered capture workflow for 3D Gaussian Splatting (3DGS)." />
   <link rel="canonical" href="https://zyz-nwpu.github.io/An-Object-Centered-Data-Acquisition-Method-for-3D-Gaussian-Splatting-using-Mobile-Phone/" />
   <style>
     :root{
@@ -15,8 +15,8 @@
     body{
       margin:0;
       font-family:system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
-      background:var(--bg);color:var(--fg);
-      line-height:1.7; /* ↑ 行间距更大 */
+      color:var(--fg); background:var(--bg);
+      line-height:var(--lh); /* 行间距由变量控制 */
       font-size:15px;
     }
     a{color:#0b57d0;text-decoration:none}
@@ -34,12 +34,28 @@
     ul{margin:8px 0 0 20px}
     li{margin:6px 0}
     .hr{height:1px;background:var(--line);margin:10px 0}
-    /* 单个视频：居中显示，宽度自适应 */
-    figure{margin:0;background:#fafafa;border:1px solid var(--line);border-radius:12px;overflow:hidden}
-    .vid{display:block;width:100%;height:auto;background:#000}
-    figcaption{padding:10px 12px;font-size:14px;color:#333;border-top:1px solid var(--line);display:flex;align-items:center;gap:6px}
+    figure{margin:0;background:#fafafa;border:1px solid var(--line);border-radius:12px;overflow:hidden;display:flex;flex-direction:column}
+    /* 视频：宽度由变量控制，等比例缩放 */
+    .vid{
+      display:block;
+      width:100%;
+      max-width:calc(640px * var(--vid-scale));   /* 640px 基准宽 × 缩放系数(0~1) */
+      height:auto;
+      background:#000;
+      margin:0 auto;
+    }
+    figcaption{padding:10px 12px;font-size:14px;color:#333;border-top:1px solid var(--line);display:flex;align-items:center;gap:6px;justify-content:center}
     .muted{color:var(--muted);font-size:13px}
     footer{margin:20px 0;color:var(--muted);font-size:13px;text-align:center}
+
+    /* 控制面板 */
+    .panel{
+      display:flex;gap:14px;flex-wrap:wrap;align-items:center;
+      padding:10px 12px;border:1px solid var(--line);border-radius:12px;background:#fff;
+    }
+    .panel label{font-size:13px;color:#333;display:flex;align-items:center;gap:8px}
+    .panel input[type="range"]{width:160px}
+    .val{font-variant-numeric:tabular-nums;color:#555}
   </style>
 </head>
 <body>
@@ -51,13 +67,29 @@
         <a class="btn" href="https://github.com/zyz-nwpu/An-Object-Centered-Data-Acquisition-Method-for-3D-Gaussian-Splatting-using-Mobile-Phone">View Code</a>
         <a class="btn" href="https://github.com/zyz-nwpu/An-Object-Centered-Data-Acquisition-Method-for-3D-Gaussian-Splatting-using-Mobile-Phone/releases/tag/v1">Release v1</a>
       </div>
-      <div class="muted">Overview & single demo</div>
+      <div class="muted">Overview & adjustable demo</div>
     </div>
   </nav>
 
   <main class="wrap">
 
-    <!-- 标题 + 简述（加大行距版本） -->
+    <!-- 控制面板：视频缩放(0~1) 与 行间距(0~1映射) -->
+    <section class="card" aria-label="display controls">
+      <div class="panel">
+        <label>
+          Video scale (0–1)
+          <input id="scale" type="range" min="0" max="1" step="0.01" value="0.8" />
+          <span class="val" id="scaleVal">0.80</span>
+        </label>
+        <label>
+          Line spacing (0–1)
+          <input id="lh" type="range" min="0" max="1" step="0.01" value="0.75" />
+          <span class="val" id="lhVal">1.70×</span>
+        </label>
+      </div>
+    </section>
+
+    <!-- 标题 + 简述 -->
     <section class="card">
       <h1>An Object-Centered Data Acquisition Method for 3D Gaussian Splatting using Mobile Phone</h1>
       <div class="hr"></div>
@@ -75,7 +107,7 @@
       <ul>
         <li>IMU-based orientations mapped to an <strong>object-centered spherical</strong> coordinate system.</li>
         <li><strong>Real-time, area-weighted coverage</strong> feedback for uniform and complete viewpoints.</li>
-        <li><strong>Dual-signal stability gate</strong> (linear acceleration + angular velocity, smoothed) for steady frames.</li>
+        <li><strong>Dual-signal stability gate</strong> (linear acceleration + angular velocity, smoothed).</li>
       </ul>
 
       <div class="hrow"><span class="hicon">🧩</span><div class="htxt">System Outline</div></div>
@@ -84,7 +116,7 @@
         <li><strong>Pose sensing:</strong> log quaternion orientation, linear acceleration, and angular velocity.</li>
         <li><strong>Stability gating:</strong> exponential averages vs. thresholds over a holding window; discard unsteady frames.</li>
         <li><strong>Spherical mapping:</strong> project optical axis to lon–lat; quantize to grid indices and update online.</li>
-        <li><strong>Area-weighted coverage:</strong> accumulate by spherical surface area; light morphological refinements (adaptive pole dilation, hole filling) without changing the weighted measure.</li>
+        <li><strong>Area-weighted coverage:</strong> accumulate by spherical surface area; light morphological refinements.</li>
       </ul>
 
       <div class="hrow"><span class="hicon">🧪</span><div class="htxt">Experimental Setting</div></div>
@@ -95,7 +127,7 @@
       </ul>
     </section>
 
-    <!-- 单个视频演示 -->
+    <!-- 单个视频演示（等比例，带可变缩放） -->
     <section class="card">
       <div class="hrow"><span class="hicon">🎬</span><div class="htxt">Demo Video</div></div>
       <figure>
@@ -104,7 +136,7 @@
         </video>
         <figcaption>📱 Capture (phone screen recording)</figcaption>
       </figure>
-      <p class="muted" style="margin-top:8px">Full assets are available on the Release page.</p>
+      <p class="muted" style="margin-top:8px">Adjust the video scale and line spacing above to fit your screen or preference.</p>
     </section>
 
     <!-- APK / Release -->
@@ -119,5 +151,33 @@
     <footer>© 2025 zyz-nwpu</footer>
   </main>
 
+  <script>
+    // 映射：视频缩放系数 0~1 直接映射到 --vid-scale
+    const scale = document.getElementById('scale');
+    const scaleVal = document.getElementById('scaleVal');
+    // 映射：行间距 0~1 -> 1.2 ~ 2.0（更实用的区间），你也可改为你想要的范围
+    const lh = document.getElementById('lh');
+    const lhVal = document.getElementById('lhVal');
+
+    function fmt(n, digits=2){ return Number(n).toFixed(digits); }
+
+    function applyScale(v){
+      document.documentElement.style.setProperty('--vid-scale', v);
+      scaleVal.textContent = fmt(v);
+    }
+    function applyLH(t){
+      const lhMapped = 1.2 + t * 0.8; // 0 → 1.2, 1 → 2.0
+      document.documentElement.style.setProperty('--lh', lhMapped);
+      lhVal.textContent = fmt(lhMapped) + '×';
+    }
+
+    // 初始化
+    applyScale(scale.value);
+    applyLH(lh.value);
+
+    // 事件
+    scale.addEventListener('input', e => applyScale(e.target.value));
+    lh.addEventListener('input', e => applyLH(e.target.value));
+  </script>
 </body>
 </html>
