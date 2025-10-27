@@ -42,9 +42,3 @@ Mobile capture was conducted on a **Redmi K70 Pro** with angle logging and stabi
   Side-by-side renderings at matched viewpoints as in the manuscript:  
   `![Reconstruction Comparison](docs/recon_compare.png)`
 
----
-
-## 🗺️ Repository Notes
-- `docs/` — assets for the demo/showcase and GitHub Pages (to be populated).  
-- Additional source or scripts may be added later in a manner consistent with the manuscript.
-
