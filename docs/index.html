@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Mobile Object-Centered Capture — Demos & Downloads</title>
-  <meta name="description" content="Demo videos and APK for the mobile, object-centered capture app used with 3D Gaussian Splatting." />
+  <title>An Object-Centered Data Acquisition Method for 3D Gaussian Splatting using Mobile Phone — Demos & Overview</title>
+  <meta name="description" content="Overview, method outline, experimental setting, and demo videos for the mobile, object-centered capture workflow for 3D Gaussian Splatting." />
   <link rel="canonical" href="https://zyz-nwpu.github.io/An-Object-Centered-Data-Acquisition-Method-for-3D-Gaussian-Splatting-using-Mobile-Phone/" />
   <style>
     :root{
@@ -21,9 +21,11 @@
     .btn:hover{background:#fafafa}
     .wrap{max-width:var(--maxw);margin:16px auto 24px;padding:0 var(--pad)}
     .card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:20px;box-shadow:0 4px 16px rgba(0,0,0,.04);margin-bottom:16px}
-    h1{margin:0 0 6px;font-size:24px}
-    h2{margin:8px 0 8px;font-size:20px}
+    h1{margin:0 0 10px;font-size:26px}
+    h2{margin:12px 0 8px;font-size:20px}
+    h3{margin:10px 0 6px;font-size:17px}
     p.lead{margin:0 0 12px;color:var(--muted)}
+    ul{margin:8px 0 8px 18px}
     .notice{background:#fff8e1;border:1px solid #ffe0a3;color:#8a6d1a;border-radius:12px;padding:10px 12px;margin:12px 0}
     .video-wrap{display:flex;flex-direction:column;align-items:center;gap:8px}
     .video{width:100%;max-width:var(--video-maxw);background:#000;border-radius:12px}
@@ -34,6 +36,7 @@
       .row{grid-template-columns:1fr 1fr}
     }
     footer{margin:24px 0;color:var(--muted);font-size:14px;text-align:center}
+    .hr{height:1px;background:var(--line);margin:12px 0}
   </style>
 </head>
 <body>
@@ -43,24 +46,43 @@
     <div class="navwrap">
       <div style="display:flex;gap:8px;flex-wrap:wrap">
         <a class="btn" href="https://github.com/zyz-nwpu/An-Object-Centered-Data-Acquisition-Method-for-3D-Gaussian-Splatting-using-Mobile-Phone">View Code on GitHub</a>
-        <a class="btn" href="https://github.com/zyz-nwpu">More projects</a>
+        <a class="btn" href="https://github.com/zyz-nwpu/An-Object-Centered-Data-Acquisition-Method-for-3D-Gaussian-Splatting-using-Mobile-Phone/releases/tag/v1">Open Release v1</a>
       </div>
-      <div style="font-size:12px;color:#888">Fixed compact preview</div>
+      <div style="font-size:12px;color:#888">Overview + compact previews</div>
     </div>
   </nav>
 
   <main class="wrap">
 
+    <!-- ======= README textual content moved to the front ======= -->
     <section class="card">
-      <div class="notice">
-        📢 Heads-up: For now we only provide <strong>demo videos</strong> and <strong>Android APK</strong>.
-        The <strong>source code is not yet uploaded</strong>. We will submit and continuously add the full description, step-by-step guide, and code soon.
-      </div>
-      <h1>Mobile Object-Centered Capture — Demos & Downloads</h1>
-      <p class="lead">Compact autoplay previews below. Use the download buttons for full files or open the Release page to see all assets.</p>
+      <h1>An Object-Centered Data Acquisition Method for 3D Gaussian Splatting using Mobile Phone</h1>
+      <div class="hr"></div>
+
+      <h2>🔎 Overview</h2>
+      <p>This page accompanies a method for mobile, object-centered multiview data acquisition tailored to 3D Gaussian Splatting (3DGS). The workflow establishes an object-centered spherical coordinate framework for capture on smartphones. After a one-time calibration, device orientations are aligned to a baseline reference and the camera forward direction is mapped to a discretized spherical grid for viewpoint indexing. To counter polar sampling bias, area-weighted spherical coverage is computed in real time to guide motion. A stability gate, based on smoothed inertial measurements, admits only steady-motion frames. The collected images and poses are intended for off-device 3DGS reconstruction.</p>
+
+      <h2>🧭 Key Contributions</h2>
+      <ul>
+        <li>Mapping mobile IMU-based orientations to an object-centered spherical coordinate system.</li>
+        <li>Real-time, area-weighted spherical coverage feedback that encourages angular uniformity and completeness.</li>
+        <li>A dual-mode stability gate using smoothed linear acceleration and angular velocity so that only steady frames are recorded.</li>
+      </ul>
+
+      <h2>🧩 System Outline</h2>
+      <ul>
+        <li><strong>Calibration.</strong> Record a baseline device orientation once; subsequent orientations are referenced relatively to ensure consistency across trials.</li>
+        <li><strong>Pose sensing.</strong> During capture, the device logs orientation (quaternion), linear acceleration, and angular velocity.</li>
+        <li><strong>Stability gating.</strong> Exponential moving averages of the acceleration and angular velocity magnitudes are compared with thresholds over a holding window; frames outside steady conditions are discarded.</li>
+        <li><strong>Spherical mapping.</strong> The camera’s forward direction is projected onto a longitude–latitude grid; normalized angles are quantized to grid indices for online coverage bookkeeping.</li>
+        <li><strong>Area-weighted coverage.</strong> Coverage accumulation uses spherical surface-area weighting to avoid overestimation near the poles; morphological refinements (adaptive pole dilation and hole filling) improve local consistency without altering the area-weighted measure.</li>
+      </ul>
+
+      <h2>🧪 Experimental Setting (brief)</h2>
+      <p>Mobile capture was conducted on a <strong>Redmi K70 Pro</strong> with angle logging and stability gating enabled. Off-device reconstruction employed <strong>3D Gaussian Splatting (3DGS)</strong> on a workstation equipped with an <strong>NVIDIA RTX 5090D</strong>. Evaluation used a tabletop object for analysis and visualization.</p>
     </section>
 
-    <!-- Videos -->
+    <!-- ======= Demo videos & downloads (kept as you provided) ======= -->
     <section class="card">
       <h2>🎥 Capturing workflow</h2>
       <div class="video-wrap">
@@ -83,7 +105,7 @@
       </div>
     </section>
 
-    <!-- APK -->
+    <!-- APK (kept) -->
     <section class="card">
       <h2>📦 Android APK</h2>
       <div class="row">
