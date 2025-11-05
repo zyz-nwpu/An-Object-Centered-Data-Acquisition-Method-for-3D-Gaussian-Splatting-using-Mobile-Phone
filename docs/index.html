@@ -11,7 +11,7 @@
       --fg:#111; --muted:#666; --line:#eaeaea; --bg:#f7f7f7; --card:#fff;
       --radius:14px; --pad:16px; --maxw:1400px; /* 页面最大宽度可控 */
       --vid-h: 420px;
-      --page-minw: 1200px;  /* 页面最小宽度，避免标题被折行 */
+      --page-minw: 1400px;  /* 页面最小宽度，避免标题被折行 */
     }
     *{box-sizing:border-box}
     body{
@@ -23,6 +23,7 @@
       min-width: var(--page-minw);
     }
     a{color:#0b57d0;text-decoration:none}
+    a:hover{text-decoration:underline}
     nav{position:sticky;top:0;z-index:10;background:#fff;border-bottom:1px solid var(--line)}
     .navwrap{max-width:var(--maxw);margin:0 auto;padding:10px var(--pad);display:flex;gap:10px;flex-wrap:wrap;align-items:center;justify-content:space-between}
     .btn{display:inline-block;padding:7px 12px;border:1px solid var(--line);border-radius:10px;background:#fff;color:var(--fg)}
@@ -30,7 +31,7 @@
     .wrap{max-width:var(--maxw);margin:18px auto 26px;padding:0 var(--pad)}
     .card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:16px;box-shadow:0 3px 12px rgba(0,0,0,.04);margin-bottom:14px}
 
-    /* 保持原有标题样式，不改动 */
+    /* 标题保持原样 */
     h1{margin:0 0 8px;font-size:30px;line-height:1.25}
 
     .hrow{display:flex;align-items:center;gap:8px;margin:8px 0}
@@ -47,7 +48,7 @@
     /* Media blocks */
     figure{margin:0;background:#fff;border:1px solid var(--line);border-radius:12px;overflow:hidden}
 
-    /* 新增：让媒体容器本身居中对齐其子元素 */
+    /* 居中图片与视频 */
     .media-block{
       padding:12px;
       display:flex;
@@ -59,12 +60,11 @@
       display:block;
       border-radius:8px;
       background:#fff;
-      margin:0 auto;          /* 新增：图片也可水平居中 */
+      margin:0 auto;
       max-width:100%;
       height:auto;
     }
 
-    /* 说明文本在媒体之上 */
     figcaption{display:none}
     .media-desc{
       margin: 0 0 10px 0;
@@ -76,14 +76,12 @@
       color:#333;
     }
 
-    /* Image width-based scaling */
     .is-figure .media-block img{
       width: var(--fig-w, 100%);
       max-width: 100%;
       height: auto;
     }
 
-    /* Two videos side-by-side */
     .videos-intro{ margin:12px 0; }
     .video-grid{
       display:grid;
@@ -236,17 +234,14 @@
       </ul>
     </section>
 
-    <!-- 新增：致谢 -->
+    <!-- 致谢 -->
     <section class="card">
       <div class="hrow"><span class="hicon">🙏</span><div class="htxt">Acknowledgements</div></div>
-      <p>Our work is based on <a class="btn" href="https://github.com/graphdeco-inria/gaussian-splatting" target="_blank" rel="noopener">3DGS</a>, and camera app modifications are based on <a class="btn" href="https://github.com/FossifyOrg/Camera" target="_blank" rel="noopener">Camera</a>.</p>
-      <!-- 如果你只想显示“3DGS”和“Camera”两个按钮，可保留上行写法；也可改成下面的纯链接列表： -->
-      <!--
-      <ul>
-        <li><a href="https://github.com/graphdeco-inria/gaussian-splatting" target="_blank" rel="noopener">3DGS</a></li>
-        <li><a href="https://github.com/FossifyOrg/Camera" target="_blank" rel="noopener">Camera</a></li>
-      </ul>
-      -->
+      <p>
+        We gratefully acknowledge <a href="https://github.com/graphdeco-inria/gaussian-splatting" target="_blank" rel="noopener">3DGS</a>,
+        on which this work is based. We also thank the
+        <a href="https://github.com/FossifyOrg/Camera" target="_blank" rel="noopener">Camera</a> project, upon which our camera app modifications are built.
+      </p>
     </section>
 
     <footer>© 2025 zyz-nwpu</footer>
