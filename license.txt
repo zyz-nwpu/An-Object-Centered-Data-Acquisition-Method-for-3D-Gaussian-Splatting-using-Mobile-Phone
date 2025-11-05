@@ -1,4 +1,4 @@
-3DGS Object-Centered Capture
+An-Object-Centered-Data-Acquisition-Method-for-3D-Gaussian-Splatting-using-Mobile-Phone
 Copyright © 2025 Yuezhe Zhang et al.
 
 -------------------------------------------------------------------------------
@@ -759,3 +759,4 @@ Public License instead of this License.  But first, please read
 -------------------------------------------------------------------------------
 End of License
 -------------------------------------------------------------------------------
+
