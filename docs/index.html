@@ -9,9 +9,10 @@
   <style>
     :root{
       --fg:#111; --muted:#666; --line:#eaeaea; --bg:#f7f7f7; --card:#fff;
-      --radius:14px; --pad:16px; --maxw:1400px; /* 页面最大宽度可控 */
-      --vid-h: 420px;
-      --page-minw: 1800px;  /* 页面最小宽度，避免标题被折行 */
+      --radius:14px; --pad:16px;
+      /* 新增：页面与“白色框”可控宽度 */
+      --content-w: 1800px;   /* 改这里就能变宽，例如 1200/1400/1800px */
+      --vid-h: 450px;
     }
     *{box-sizing:border-box}
     body{
@@ -20,18 +21,27 @@
       color:var(--fg); background:var(--bg);
       line-height:var(--lh);
       font-size:15px;
-      min-width: var(--page-minw);
     }
     a{color:#0b57d0;text-decoration:none}
     a:hover{text-decoration:underline}
+
+    /* 顶部与内容容器：不再受 max-width 限制，用 --content-w 控制 */
     nav{position:sticky;top:0;z-index:10;background:#fff;border-bottom:1px solid var(--line)}
-    .navwrap{max-width:var(--maxw);margin:0 auto;padding:10px var(--pad);display:flex;gap:10px;flex-wrap:wrap;align-items:center;justify-content:space-between}
+    .navwrap,
+    .wrap{
+      max-width:none !important;                 /* 解除旧限制 */
+      width:min(var(--content-w), 96vw);         /* 可控且自适应视口 */
+      margin:0 auto;
+      padding:0 var(--pad);
+    }
+    .navwrap{padding:10px var(--pad);display:flex;gap:10px;flex-wrap:wrap;align-items:center;justify-content:space-between}
+
     .btn{display:inline-block;padding:7px 12px;border:1px solid var(--line);border-radius:10px;background:#fff;color:var(--fg)}
     .btn:hover{background:#fafafa}
-    .wrap{max-width:var(--maxw);margin:18px auto 26px;padding:0 var(--pad)}
+    .wrap{margin:18px auto 26px}
     .card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:16px;box-shadow:0 3px 12px rgba(0,0,0,.04);margin-bottom:14px}
 
-    /* 标题保持原样 */
+    /* 标题不改样式 */
     h1{margin:0 0 8px;font-size:30px;line-height:1.25}
 
     .hrow{display:flex;align-items:center;gap:8px;margin:8px 0}
@@ -47,8 +57,6 @@
 
     /* Media blocks */
     figure{margin:0;background:#fff;border:1px solid var(--line);border-radius:12px;overflow:hidden}
-
-    /* 居中图片与视频 */
     .media-block{
       padding:12px;
       display:flex;
@@ -234,7 +242,7 @@
       </ul>
     </section>
 
-    <!-- 致谢 -->
+    <!-- Acknowledgements -->
     <section class="card">
       <div class="hrow"><span class="hicon">🙏</span><div class="htxt">Acknowledgements</div></div>
       <p>
