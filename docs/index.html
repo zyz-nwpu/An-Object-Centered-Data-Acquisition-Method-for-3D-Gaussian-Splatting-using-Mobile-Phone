@@ -10,8 +10,7 @@
     :root{
       --fg:#111; --muted:#666; --line:#eaeaea; --bg:#f7f7f7; --card:#fff;
       --radius:14px; --pad:16px;
-      /* 新增：页面与“白色框”可控宽度 */
-      --content-w: 1200px;   /* 改这里就能变宽，例如 1200/1400/1800px */
+      --content-w: 1200px;
       --vid-h: 350px;
     }
     *{box-sizing:border-box}
@@ -24,38 +23,29 @@
     }
     a{color:#0b57d0;text-decoration:none}
     a:hover{text-decoration:underline}
-
-    /* 顶部与内容容器：不再受 max-width 限制，用 --content-w 控制 */
     nav{position:sticky;top:0;z-index:10;background:#fff;border-bottom:1px solid var(--line)}
     .navwrap,
     .wrap{
-      max-width:none !important;                 /* 解除旧限制 */
-      width:min(var(--content-w), 96vw);         /* 可控且自适应视口 */
+      max-width:none !important;
+      width:min(var(--content-w), 96vw);
       margin:0 auto;
       padding:0 var(--pad);
     }
     .navwrap{padding:10px var(--pad);display:flex;gap:10px;flex-wrap:wrap;align-items:center;justify-content:space-between}
-
     .btn{display:inline-block;padding:7px 12px;border:1px solid var(--line);border-radius:10px;background:#fff;color:var(--fg)}
     .btn:hover{background:#fafafa}
     .wrap{margin:18px auto 26px}
     .card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:16px;box-shadow:0 3px 12px rgba(0,0,0,.04);margin-bottom:14px}
-
-    /* 标题不改样式 */
     h1{margin:0 0 8px;font-size:30px;line-height:1.25}
-
     .hrow{display:flex;align-items:center;gap:8px;margin:8px 0}
     .hicon{width:22px;display:inline-flex;justify-content:center}
     .htxt{font-size:20px;font-weight:600;line-height:1.4}
-
     p{margin:8px 0}
     ul{margin:8px 0 0 20px}
     li{margin:6px 0}
     .hr{height:1px;background:var(--line);margin:10px 0}
     .muted{color:var(--muted);font-size:13px}
     footer{margin:20px 0;color:var(--muted);font-size:13px;text-align:center}
-
-    /* Media blocks */
     figure{margin:0;background:#fff;border:1px solid var(--line);border-radius:12px;overflow:hidden}
     .media-block{
       padding:12px;
@@ -72,7 +62,6 @@
       max-width:100%;
       height:auto;
     }
-
     figcaption{display:none}
     .media-desc{
       margin: 0 0 10px 0;
@@ -83,13 +72,11 @@
       font-size:14px;
       color:#333;
     }
-
     .is-figure .media-block img{
       width: var(--fig-w, 100%);
       max-width: 100%;
       height: auto;
     }
-
     .videos-intro{ margin:12px 0; }
     .video-grid{
       display:grid;
@@ -100,7 +87,6 @@
     @media (max-width: 900px){
       .video-grid{ grid-template-columns: 1fr; }
     }
-
     .video-cell{
       border:1px solid var(--line);
       border-radius:12px;
@@ -135,25 +121,19 @@
   </style>
 </head>
 <body>
-
-  <!-- Top nav -->
   <nav>
     <div class="navwrap">
       <div style="display:flex;gap:8px;flex-wrap:wrap">
         <a class="btn" href="https://github.com/zyz-nwpu/An-Object-Centered-Data-Acquisition-Method-for-3D-Gaussian-Splatting-using-Mobile-Phone">View Code</a>
-        <a class="btn" href="https://github.com/zyz-nwpu/An-Object-Centered-Data-Acquisition-Method-for-3D-Gaussian-Splatting-using-Mobile-Phone/releases/tag/v1">Release v1</a>
+        <a class="btn" href="https://github.com/zyz-nwpu/An-Object-Centered-Data-Acquisition-Method-for-3D-Gaussian-Splatting-using-Mobile-Phone/releases/tag/v1.1">Release v1.1_official</a>
       </div>
       <div class="muted">Overview & demo</div>
     </div>
   </nav>
-
   <main class="wrap">
-
-    <!-- Title + overview -->
     <section class="card">
       <h1>An Object-Centered Data Acquisition Method for 3D Gaussian Splatting using Mobile Phone</h1>
       <div class="hr"></div>
-
       <div class="hrow"><span class="hicon">🔎</span><div class="htxt">Overview</div></div>
       <p>
         A mobile, <strong>object-centered</strong> capture workflow for <strong>3D Gaussian Splatting (3DGS)</strong>.
@@ -162,14 +142,12 @@
         to avoid polar bias, and a <strong>stability gate</strong> from smoothed IMU signals admits only steady frames.
         Images and poses are used for off-device 3DGS reconstruction.
       </p>
-
       <div class="hrow"><span class="hicon">🧭</span><div class="htxt">Key Contributions</div></div>
       <ul>
         <li>IMU-based orientations mapped to an <strong>object-centered spherical</strong> coordinate system.</li>
         <li><strong>Real-time, area-weighted coverage</strong> feedback for uniform and complete viewpoints.</li>
         <li><strong>Dual-signal stability gate</strong> (linear acceleration + angular velocity, smoothed).</li>
       </ul>
-
       <div class="hrow"><span class="hicon">🧩</span><div class="htxt">System Outline</div></div>
       <ul>
         <li><strong>Calibration:</strong> record a baseline orientation; later poses are referenced relatively.</li>
@@ -178,7 +156,6 @@
         <li><strong>Spherical mapping:</strong> project the optical axis to lon–lat; quantize to grid indices and update online.</li>
         <li><strong>Area-weighted coverage:</strong> accumulate by spherical surface area; light morphological refinements.</li>
       </ul>
-
       <div class="hrow"><span class="hicon">🧪</span><div class="htxt">Experimental Setting</div></div>
       <ul>
         <li><strong>Device:</strong> Redmi K70 Pro (angle logging & stability gating)</li>
@@ -186,12 +163,8 @@
         <li><strong>Evaluation:</strong> tabletop objects for analysis and visualization</li>
       </ul>
     </section>
-
-    <!-- Demo & Figure -->
     <section class="card">
       <div class="hrow"><span class="hicon">🎬</span><div class="htxt">Demo & Figure</div></div>
-
-      <!-- Method figure -->
       <figure class="is-figure" style="--fig-w: 760px;">
         <div class="media-desc">
           <strong>Method figure.</strong> A compact summary of our <em>object-centered</em> mobile capture loop:
@@ -204,15 +177,11 @@
           <img src="./绘图1_01.png" alt="Method figure (display-only)" loading="lazy">
         </div>
       </figure>
-
-      <!-- Two videos side-by-side -->
       <div class="videos-intro media-desc">
         <strong>Two videos:</strong> the left video records the <em>capture process</em> with real-time coverage and stability indicators;
         the right video shows the <em>reconstruction result</em> rendered from the collected images and poses.
       </div>
-
       <div class="video-grid">
-        <!-- Left: Capture process -->
         <div class="video-cell">
           <div class="video-title">Capture Process (screen recording)</div>
           <div class="video-frame">
@@ -221,8 +190,6 @@
             </video>
           </div>
         </div>
-
-        <!-- Right: Reconstruction result -->
         <div class="video-cell">
           <div class="video-title">Reconstruction Result (3DGS)</div>
           <div class="video-frame">
@@ -233,8 +200,6 @@
         </div>
       </div>
     </section>
-
-<!-- Downloads -->
 <section class="card">
   <div class="hrow"><span class="hicon">📦</span><div class="htxt">Downloads</div></div>
   <ul>
@@ -253,10 +218,6 @@
     <li><strong>no_stable_test.apk</strong> — a version without stability detection, designed for future work; results for this version are not included on this page.</li>
   </ul>
 </section>
-
-    </section>
-
-    <!-- Acknowledgements -->
     <section class="card">
       <div class="hrow"><span class="hicon">🙏</span><div class="htxt">Acknowledgements</div></div>
       <p>
@@ -265,9 +226,7 @@
         <a href="https://github.com/FossifyOrg/Camera" target="_blank" rel="noopener">Camera</a> project, upon which our camera app modifications are built.
       </p>
     </section>
-
-    <footer>© 2025 zyz-nwpu</footer>
+    <footer>© 2025 Yuezhe Zhang</footer>
   </main>
-
 </body>
 </html>
