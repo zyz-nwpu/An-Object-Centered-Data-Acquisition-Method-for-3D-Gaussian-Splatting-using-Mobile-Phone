@@ -17,7 +17,6 @@ It introduces an **on-device, real-time guided capture** process that leverages 
 ## 🧪 Experimental Setup
 - **Device:** Redmi K70 Pro (with angle logging and stability gating)  
 - **Reconstruction:** 3D Gaussian Splatting on NVIDIA RTX 5090D  
-- **Evaluation:** Tabletop object scenes for quantitative and qualitative analysis
 
 ---
 
