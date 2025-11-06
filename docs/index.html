@@ -278,19 +278,23 @@
 <section class="card">
   <div class="hrow"><span class="hicon">📊</span><div class="htxt">Result</div></div>
   <p>
-    <strong>Table&nbsp;1</strong> compares <em>free capture</em> and our guided capture across four yaw sectors
-    (−45°–45°, 45°–135°, 135°–−135° [wrapped], −135°–−45°). For each sector we list the number of photos and the
-    <em>coverage</em>, defined as the area-weighted fraction of occupied spherical grid cells
-    (weights proportional to surface area, i.e., a cosine-of-latitude factor to remove polar bias).
-    Rows 1–5 are five different participants. The last two columns are PSNR at 7k and 30k steps.
+    <strong>Table&nbsp;1.</strong> We split yaw into <strong>four sectors</strong> (−45°–45°, 45°–135°, 135°–−135° [wrapped], −135°–−45°).
+    For each sector we report <strong>photos</strong> and <strong>coverage</strong>, where coverage is the
+    <strong>area-weighted</strong> fraction of occupied spherical grid cells
+    (weights ∝ surface area, i.e., a cosine-of-latitude factor to remove polar bias).
+    Rows <strong>1–5</strong> denote five different participants; the final two columns are <strong>PSNR</strong> at 7k and 30k steps.
   </p>
 
   <!-- narrower inner container to pull the table away from the card edges -->
   <div style="max-width:92%; margin:0 auto; overflow-x:auto;">
     <table style="width:100%; border-collapse:collapse; font-size:14px;">
+      <caption style="caption-side:top; text-align:left; padding:4px 0 10px; font-weight:600;">
+        Table&nbsp;1. Band-wise photo count, coverage, and PSNR for free vs. guided capture.
+      </caption>
       <thead>
         <tr>
-          <th style="border:1px solid var(--line); padding:8px; text-align:center;">test</th>
+          <!-- merge the 'test' header over two rows and center it -->
+          <th rowspan="2" style="border:1px solid var(--line); padding:8px; text-align:center; vertical-align:middle;">test</th>
           <th colspan="2" style="border:1px solid var(--line); padding:8px; text-align:center;">−45°–45°</th>
           <th colspan="2" style="border:1px solid var(--line); padding:8px; text-align:center;">45°–135°</th>
           <th colspan="2" style="border:1px solid var(--line); padding:8px; text-align:center;">135°–−135° (wrapped)</th>
@@ -298,7 +302,7 @@
           <th colspan="2" style="border:1px solid var(--line); padding:8px; text-align:center;">PSNR (dB)</th>
         </tr>
         <tr>
-          <th style="border:1px solid var(--line); padding:8px; text-align:center;"></th>
+          <!-- no 'test' cell here because it's merged above -->
           <th style="border:1px solid var(--line); padding:8px; text-align:center;">photos</th>
           <th style="border:1px solid var(--line); padding:8px; text-align:center;">Coverage</th>
           <th style="border:1px solid var(--line); padding:8px; text-align:center;">photos</th>
@@ -407,6 +411,7 @@
     </table>
   </div>
 </section>
+
 
 
     <section class="card">
