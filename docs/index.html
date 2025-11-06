@@ -118,6 +118,23 @@
       object-fit: contain;
       display:block;
     }
+
+    /* One-row, four-image gallery */
+    .thumb-row{
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      gap:12px;
+      margin:12px 0 6px;
+    }
+    .thumb-row img{
+      width:100%;
+      height:120px;
+      object-fit:cover;
+      background:#fff;
+      border:1px solid var(--line);
+      border-radius:10px;
+      display:block;
+    }
   </style>
 </head>
 <body>
@@ -163,8 +180,12 @@
         <li><strong>Evaluation:</strong> tabletop objects for analysis and visualization</li>
       </ul>
     </section>
+
+    <!-- Demo & Figure (modified) -->
     <section class="card">
       <div class="hrow"><span class="hicon">🎬</span><div class="htxt">Demo & Figure</div></div>
+
+      <!-- Method figure -->
       <figure class="is-figure" style="--fig-w: 760px;">
         <div class="media-desc">
           <strong>Method figure.</strong> A compact summary of our <em>object-centered</em> mobile capture loop:
@@ -177,6 +198,20 @@
           <img src="./picture1_01.png" alt="Method figure (display-only)" loading="lazy">
         </div>
       </figure>
+
+      <!-- Target Object -->
+      <div class="media-desc">
+        <strong>Targets used for capture and testing.</strong>
+        The four images below show example objects (bear series) used in our experiments. They match the assets in the release.
+      </div>
+      <div class="thumb-row">
+        <img src="https://github.com/zyz-nwpu/An-Object-Centered-Data-Acquisition-Method-for-3D-Gaussian-Splatting-using-Mobile-Phone/releases/download/v1/bear.jpg"   alt="bear.jpg">
+        <img src="https://github.com/zyz-nwpu/An-Object-Centered-Data-Acquisition-Method-for-3D-Gaussian-Splatting-using-Mobile-Phone/releases/download/v1/bear_1.jpg" alt="bear_1.jpg">
+        <img src="https://github.com/zyz-nwpu/An-Object-Centered-Data-Acquisition-Method-for-3D-Gaussian-Splatting-using-Mobile-Phone/releases/download/v1/bear_2.jpg" alt="bear_2.jpg">
+        <img src="https://github.com/zyz-nwpu/An-Object-Centered-Data-Acquisition-Method-for-3D-Gaussian-Splatting-using-Mobile-Phone/releases/download/v1/bear_3.jpg" alt="bear_3.jpg">
+      </div>
+
+      <!-- Videos -->
       <div class="videos-intro media-desc">
         <strong>Two videos:</strong> the left video records the <em>capture process</em> with real-time coverage and stability indicators;
         the right video shows the <em>reconstruction result</em> rendered from the collected images and poses.
@@ -200,24 +235,26 @@
         </div>
       </div>
     </section>
-<section class="card">
-  <div class="hrow"><span class="hicon">📦</span><div class="htxt">Downloads</div></div>
-  <ul>
-    <li>
-      <a href="https://github.com/zyz-nwpu/An-Object-Centered-Data-Acquisition-Method-for-3D-Gaussian-Splatting-using-Mobile-Phone/releases/tag/v1.1" target="_blank" rel="noopener">
-        All assets in Release v1.1_official
-      </a>
-    </li>
-  </ul>
-  <p>
-    The release includes, but may not limited to the following application builds:
-  </p>
-  <ul>
-    <li><strong>camera.apk</strong> — the main production version with all features described in the paper, including one-time calibration, area-weighted coverage feedback, and the stability gate based on smoothed acceleration and angular velocity.</li>
-    <li><strong>free_capture_test.apk</strong> — the experimental “free capture” version used in the experimental results, without the visualization grid, allowing unconstrained capture.</li>
-    <li><strong>no_stable_test.apk</strong> — a version without stability detection, designed for future work; results for this version are not included on this page.</li>
-  </ul>
-</section>
+
+    <section class="card">
+      <div class="hrow"><span class="hicon">📦</span><div class="htxt">Downloads</div></div>
+      <ul>
+        <li>
+          <a href="https://github.com/zyz-nwpu/An-Object-Centered-Data-Acquisition-Method-for-3D-Gaussian-Splatting-using-Mobile-Phone/releases/tag/v1.1" target="_blank" rel="noopener">
+            All assets in Release v1.1_official
+          </a>
+        </li>
+      </ul>
+      <p>
+        The release includes, but may not limited to the following application builds:
+      </p>
+      <ul>
+        <li><strong>camera.apk</strong> — the main production version with all features described in the paper, including one-time calibration, area-weighted coverage feedback, and the stability gate based on smoothed acceleration and angular velocity.</li>
+        <li><strong>free_capture_test.apk</strong> — the experimental “free capture” version used in the experimental results, without the visualization grid, allowing unconstrained capture.</li>
+        <li><strong>no_stable_test.apk</strong> — a version without stability detection, designed for future work; results for this version are not included on this page.</li>
+      </ul>
+    </section>
+
     <section class="card">
       <div class="hrow"><span class="hicon">🙏</span><div class="htxt">Acknowledgements</div></div>
       <p>
