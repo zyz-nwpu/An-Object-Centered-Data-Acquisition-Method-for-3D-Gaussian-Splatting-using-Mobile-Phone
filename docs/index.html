@@ -216,8 +216,11 @@
         <strong>Two videos:</strong> the left video records the <em>capture process</em> with real-time coverage and stability indicators;
         the right video shows the <em>reconstruction result</em> rendered from the collected images and poses.
       </div>
+
+      <!-- One grid, two columns. Add pairs below to create new rows -->
       <div class="video-grid">
-        <div class="video-cell">
+        <!-- Row 1 -->
+        <div class="video-cell" id="row1-left">
           <div class="video-title">Capture Process (screen recording)</div>
           <div class="video-frame">
             <video controls autoplay muted loop playsinline preload="metadata"
@@ -225,8 +228,44 @@
             </video>
           </div>
         </div>
-        <div class="video-cell">
+        <div class="video-cell" id="row1-right">
           <div class="video-title">Reconstruction Result (3DGS)</div>
+          <div class="video-frame">
+            <video controls autoplay muted loop playsinline preload="metadata"
+              src="https://github.com/zyz-nwpu/An-Object-Centered-Data-Acquisition-Method-for-3D-Gaussian-Splatting-using-Mobile-Phone/releases/download/v1/recon.mp4">
+            </video>
+          </div>
+        </div>
+
+        <!-- Row 2 (placeholder: duplicate originals, replace src later) -->
+        <div class="video-cell" id="row2-left">
+          <div class="video-title">Placeholder — Capture Process</div>
+          <div class="video-frame">
+            <video controls autoplay muted loop playsinline preload="metadata"
+              src="https://github.com/zyz-nwpu/An-Object-Centered-Data-Acquisition-Method-for-3D-Gaussian-Splatting-using-Mobile-Phone/releases/download/v1/capturing.mp4">
+            </video>
+          </div>
+        </div>
+        <div class="video-cell" id="row2-right">
+          <div class="video-title">Placeholder — Reconstruction Result</div>
+          <div class="video-frame">
+            <video controls autoplay muted loop playsinline preload="metadata"
+              src="https://github.com/zyz-nwpu/An-Object-Centered-Data-Acquisition-Method-for-3D-Gaussian-Splatting-using-Mobile-Phone/releases/download/v1/recon.mp4">
+            </video>
+          </div>
+        </div>
+
+        <!-- Row 3 (placeholder: duplicate originals, replace src later) -->
+        <div class="video-cell" id="row3-left">
+          <div class="video-title">Placeholder — Capture Process</div>
+          <div class="video-frame">
+            <video controls autoplay muted loop playsinline preload="metadata"
+              src="https://github.com/zyz-nwpu/An-Object-Centered-Data-Acquisition-Method-for-3D-Gaussian-Splatting-using-Mobile-Phone/releases/download/v1/capturing.mp4">
+            </video>
+          </div>
+        </div>
+        <div class="video-cell" id="row3-right">
+          <div class="video-title">Placeholder — Reconstruction Result</div>
           <div class="video-frame">
             <video controls autoplay muted loop playsinline preload="metadata"
               src="https://github.com/zyz-nwpu/An-Object-Centered-Data-Acquisition-Method-for-3D-Gaussian-Splatting-using-Mobile-Phone/releases/download/v1/recon.mp4">
@@ -235,6 +274,7 @@
         </div>
       </div>
     </section>
+
 
     <section class="card">
       <div class="hrow"><span class="hicon">📦</span><div class="htxt">Downloads</div></div>
