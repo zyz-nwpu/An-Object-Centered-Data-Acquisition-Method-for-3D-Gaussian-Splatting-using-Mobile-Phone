@@ -329,12 +329,12 @@
   </div>
 </section>
 
-<!-- ===== TABLE 2: COLMAP full poses vs. COLMAP centers + device orientations ===== -->
+<!-- ===== TABLE 2: COLMAP full poses vs. COLMAP centers + device orientations (merged Improvement cell) ===== -->
 <section class="card" style="margin-top:20px;">
   <div class="hrow"><span class="hicon">🧪</span><div class="htxt">Result</div></div>
   <p>
     <strong>Table&nbsp;2.</strong> We captured with our guided app, reconstructed with COLMAP geometry while replacing COLMAP rotations with device-calibrated orientations, and trained identical 3DGS models.
-    For each scene we repeated training three times, reporting PSNR at 7k and 30k steps for the original COLMAP poses (“Origin”) and our hybrid poses (“New”), together with per-scene average improvement (%).<strong>These results were omitted from the main paper for brevity; we report them here for completeness.</strong>
+    For each scene we repeated training three times, reporting PSNR at 7k and 30k steps for the original COLMAP poses (“Origin”) and our hybrid poses (“New”), together with per-scene average improvement.<strong>These results were omitted from the main paper for brevity; we report them here for completeness.</strong>
   </p>
 
   <div style="max-width:92%; margin:0 auto; overflow-x:auto;">
@@ -348,11 +348,9 @@
           <th rowspan="2" style="border:1px solid var(--line); padding:8px; text-align:center; vertical-align:middle;">Trial</th>
           <th colspan="2" style="border:1px solid var(--line); padding:8px; text-align:center;">Origin PSNR</th>
           <th colspan="2" style="border:1px solid var(--line); padding:8px; text-align:center;">New PSNR</th>
-          <th colspan="2" style="border:1px solid var(--line); padding:8px; text-align:center;">Improvement (%)</th>
+          <th rowspan="2" style="border:1px solid var(--line); padding:8px; text-align:center; vertical-align:middle;">Improvement (avg.)</th>
         </tr>
         <tr>
-          <th style="border:1px solid var(--line); padding:8px; text-align:center;">7k</th>
-          <th style="border:1px solid var(--line); padding:8px; text-align:center;">30k</th>
           <th style="border:1px solid var(--line); padding:8px; text-align:center;">7k</th>
           <th style="border:1px solid var(--line); padding:8px; text-align:center;">30k</th>
           <th style="border:1px solid var(--line); padding:8px; text-align:center;">7k</th>
@@ -361,104 +359,112 @@
       </thead>
       <tbody>
         <!-- ===== miniclawmachine ===== -->
-        <tr><td rowspan="4" style="border:1px solid var(--line); padding:8px; text-align:center;">miniclawmachine</td>
-            <td style="border:1px solid var(--line); padding:8px; text-align:center;">1</td>
-            <td style="border:1px solid var(--line); padding:8px; text-align:center;">24.952</td>
-            <td style="border:1px solid var(--line); padding:8px; text-align:center;">27.573</td>
-            <td style="border:1px solid var(--line); padding:8px; text-align:center;">25.116</td>
-            <td style="border:1px solid var(--line); padding:8px; text-align:center;">27.634</td>
-            <td style="border:1px solid var(--line); padding:8px; text-align:center;">—</td>
-            <td style="border:1px solid var(--line); padding:8px; text-align:center;">—</td></tr>
-        <tr><td style="border:1px solid var(--line); padding:8px; text-align:center;">2</td>
-            <td style="border:1px solid var(--line); padding:8px; text-align:center;">24.818</td>
-            <td style="border:1px solid var(--line); padding:8px; text-align:center;">27.574</td>
-            <td style="border:1px solid var(--line); padding:8px; text-align:center;">25.002</td>
-            <td style="border:1px solid var(--line); padding:8px; text-align:center;">27.678</td>
-            <td style="border:1px solid var(--line); padding:8px; text-align:center;">—</td>
-            <td style="border:1px solid var(--line); padding:8px; text-align:center;">—</td></tr>
-        <tr><td style="border:1px solid var(--line); padding:8px; text-align:center;">3</td>
-            <td style="border:1px solid var(--line); padding:8px; text-align:center;">25.027</td>
-            <td style="border:1px solid var(--line); padding:8px; text-align:center;">27.744</td>
-            <td style="border:1px solid var(--line); padding:8px; text-align:center;">25.120</td>
-            <td style="border:1px solid var(--line); padding:8px; text-align:center;">27.593</td>
-            <td style="border:1px solid var(--line); padding:8px; text-align:center;">—</td>
-            <td style="border:1px solid var(--line); padding:8px; text-align:center;">—</td></tr>
-        <tr><td style="border:1px solid var(--line); padding:8px; text-align:center;">avg.</td>
-            <td style="border:1px solid var(--line); padding:8px; text-align:center;">24.932</td>
-            <td style="border:1px solid var(--line); padding:8px; text-align:center;">27.630</td>
-            <td style="border:1px solid var(--line); padding:8px; text-align:center;">25.080</td>
-            <td style="border:1px solid var(--line); padding:8px; text-align:center;">27.635</td>
-            <td style="border:1px solid var(--line); padding:8px; text-align:center;">0.59</td>
-            <td style="border:1px solid var(--line); padding:8px; text-align:center;">0.02</td></tr>
+        <tr>
+          <td rowspan="4" style="border:1px solid var(--line); padding:8px; text-align:center;">miniclawmachine</td>
+          <td style="border:1px solid var(--line); padding:8px; text-align:center;">1</td>
+          <td style="border:1px solid var(--line); padding:8px; text-align:center;">24.952</td>
+          <td style="border:1px solid var(--line); padding:8px; text-align:center;">27.573</td>
+          <td style="border:1px solid var(--line); padding:8px; text-align:center;">25.116</td>
+          <td style="border:1px solid var(--line); padding:8px; text-align:center;">27.634</td>
+          <td rowspan="4" style="border:1px solid var(--line); padding:8px; text-align:center; white-space:nowrap;">
+            7k: +0.59%<br>30k: +0.02%
+          </td>
+        </tr>
+        <tr>
+          <td style="border:1px solid var(--line); padding:8px; text-align:center;">2</td>
+          <td style="border:1px solid var(--line); padding:8px; text-align:center;">24.818</td>
+          <td style="border:1px solid var(--line); padding:8px; text-align:center;">27.574</td>
+          <td style="border:1px solid var(--line); padding:8px; text-align:center;">25.002</td>
+          <td style="border:1px solid var(--line); padding:8px; text-align:center;">27.678</td>
+        </tr>
+        <tr>
+          <td style="border:1px solid var(--line); padding:8px; text-align:center;">3</td>
+          <td style="border:1px solid var(--line); padding:8px; text-align:center;">25.027</td>
+          <td style="border:1px solid var(--line); padding:8px; text-align:center;">27.744</td>
+          <td style="border:1px solid var(--line); padding:8px; text-align:center;">25.120</td>
+          <td style="border:1px solid var(--line); padding:8px; text-align:center;">27.593</td>
+        </tr>
+        <tr>
+          <td style="border:1px solid var(--line); padding:8px; text-align:center;">avg.</td>
+          <td style="border:1px solid var(--line); padding:8px; text-align:center;">24.932</td>
+          <td style="border:1px solid var(--line); padding:8px; text-align:center;">27.630</td>
+          <td style="border:1px solid var(--line); padding:8px; text-align:center;">25.080</td>
+          <td style="border:1px solid var(--line); padding:8px; text-align:center;">27.635</td>
+        </tr>
 
         <!-- ===== bearplanter ===== -->
-        <tr><td rowspan="4" style="border:1px solid var(--line); padding:8px; text-align:center;">bearplanter</td>
-            <td style="border:1px solid var(--line); padding:8px; text-align:center;">1</td>
-            <td style="border:1px solid var(--line); padding:8px; text-align:center;">26.703</td>
-            <td style="border:1px solid var(--line); padding:8px; text-align:center;">28.680</td>
-            <td style="border:1px solid var(--line); padding:8px; text-align:center;">26.813</td>
-            <td style="border:1px solid var(--line); padding:8px; text-align:center;">28.658</td>
-            <td style="border:1px solid var(--line); padding:8px; text-align:center;">—</td>
-            <td style="border:1px solid var(--line); padding:8px; text-align:center;">—</td></tr>
-        <tr><td style="border:1px solid var(--line); padding:8px; text-align:center;">2</td>
-            <td style="border:1px solid var(--line); padding:8px; text-align:center;">26.726</td>
-            <td style="border:1px solid var(--line); padding:8px; text-align:center;">28.705</td>
-            <td style="border:1px solid var(--line); padding:8px; text-align:center;">26.735</td>
-            <td style="border:1px solid var(--line); padding:8px; text-align:center;">28.638</td>
-            <td style="border:1px solid var(--line); padding:8px; text-align:center;">—</td>
-            <td style="border:1px solid var(--line); padding:8px; text-align:center;">—</td></tr>
-        <tr><td style="border:1px solid var(--line); padding:8px; text-align:center;">3</td>
-            <td style="border:1px solid var(--line); padding:8px; text-align:center;">26.716</td>
-            <td style="border:1px solid var(--line); padding:8px; text-align:center;">28.638</td>
-            <td style="border:1px solid var(--line); padding:8px; text-align:center;">26.799</td>
-            <td style="border:1px solid var(--line); padding:8px; text-align:center;">28.813</td>
-            <td style="border:1px solid var(--line); padding:8px; text-align:center;">—</td>
-            <td style="border:1px solid var(--line); padding:8px; text-align:center;">—</td></tr>
-        <tr><td style="border:1px solid var(--line); padding:8px; text-align:center;">avg.</td>
-            <td style="border:1px solid var(--line); padding:8px; text-align:center;">26.715</td>
-            <td style="border:1px solid var(--line); padding:8px; text-align:center;">28.674</td>
-            <td style="border:1px solid var(--line); padding:8px; text-align:center;">26.783</td>
-            <td style="border:1px solid var(--line); padding:8px; text-align:center;">28.703</td>
-            <td style="border:1px solid var(--line); padding:8px; text-align:center;">0.25</td>
-            <td style="border:1px solid var(--line); padding:8px; text-align:center;">0.10</td></tr>
+        <tr>
+          <td rowspan="4" style="border:1px solid var(--line); padding:8px; text-align:center;">bearplanter</td>
+          <td style="border:1px solid var(--line); padding:8px; text-align:center;">1</td>
+          <td style="border:1px solid var(--line); padding:8px; text-align:center;">26.703</td>
+          <td style="border:1px solid var(--line); padding:8px; text-align:center;">28.680</td>
+          <td style="border:1px solid var(--line); padding:8px; text-align:center;">26.813</td>
+          <td style="border:1px solid var(--line); padding:8px; text-align:center;">28.658</td>
+          <td rowspan="4" style="border:1px solid var(--line); padding:8px; text-align:center; white-space:nowrap;">
+            7k: +0.25%<br>30k: +0.10%
+          </td>
+        </tr>
+        <tr>
+          <td style="border:1px solid var(--line); padding:8px; text-align:center;">2</td>
+          <td style="border:1px solid var(--line); padding:8px; text-align:center;">26.726</td>
+          <td style="border:1px solid var(--line); padding:8px; text-align:center;">28.705</td>
+          <td style="border:1px solid var(--line); padding:8px; text-align:center;">26.735</td>
+          <td style="border:1px solid var(--line); padding:8px; text-align:center;">28.638</td>
+        </tr>
+        <tr>
+          <td style="border:1px solid var(--line); padding:8px; text-align:center;">3</td>
+          <td style="border:1px solid var(--line); padding:8px; text-align:center;">26.716</td>
+          <td style="border:1px solid var(--line); padding:8px; text-align:center;">28.638</td>
+          <td style="border:1px solid var(--line); padding:8px; text-align:center;">26.799</td>
+          <td style="border:1px solid var(--line); padding:8px; text-align:center;">28.813</td>
+        </tr>
+        <tr>
+          <td style="border:1px solid var(--line); padding:8px; text-align:center;">avg.</td>
+          <td style="border:1px solid var(--line); padding:8px; text-align:center;">26.715</td>
+          <td style="border:1px solid var(--line); padding:8px; text-align:center;">28.674</td>
+          <td style="border:1px solid var(--line); padding:8px; text-align:center;">26.783</td>
+          <td style="border:1px solid var(--line); padding:8px; text-align:center;">28.703</td>
+        </tr>
 
         <!-- ===== coinbank_bear ===== -->
-        <tr><td rowspan="4" style="border:1px solid var(--line); padding:8px; text-align:center;">coinbank_bear</td>
-            <td style="border:1px solid var(--line); padding:8px; text-align:center;">1</td>
-            <td style="border:1px solid var(--line); padding:8px; text-align:center;">26.350</td>
-            <td style="border:1px solid var(--line); padding:8px; text-align:center;">28.449</td>
-            <td style="border:1px solid var(--line); padding:8px; text-align:center;">26.420</td>
-            <td style="border:1px solid var(--line); padding:8px; text-align:center;">28.486</td>
-            <td style="border:1px solid var(--line); padding:8px; text-align:center;">—</td>
-            <td style="border:1px solid var(--line); padding:8px; text-align:center;">—</td></tr>
-        <tr><td style="border:1px solid var(--line); padding:8px; text-align:center;">2</td>
-            <td style="border:1px solid var(--line); padding:8px; text-align:center;">26.363</td>
-            <td style="border:1px solid var(--line); padding:8px; text-align:center;">28.495</td>
-            <td style="border:1px solid var(--line); padding:8px; text-align:center;">26.455</td>
-            <td style="border:1px solid var(--line); padding:8px; text-align:center;">28.525</td>
-            <td style="border:1px solid var(--line); padding:8px; text-align:center;">—</td>
-            <td style="border:1px solid var(--line); padding:8px; text-align:center;">—</td></tr>
-        <tr><td style="border:1px solid var(--line); padding:8px; text-align:center;">3</td>
-            <td style="border:1px solid var(--line); padding:8px; text-align:center;">26.291</td>
-            <td style="border:1px solid var(--line); padding:8px; text-align:center;">28.443</td>
-            <td style="border:1px solid var(--line); padding:8px; text-align:center;">26.442</td>
-            <td style="border:1px solid var(--line); padding:8px; text-align:center;">28.382</td>
-            <td style="border:1px solid var(--line); padding:8px; text-align:center;">—</td>
-            <td style="border:1px solid var(--line); padding:8px; text-align:center;">—</td></tr>
-        <tr><td style="border:1px solid var(--line); padding:8px; text-align:center;">avg.</td>
-            <td style="border:1px solid var(--line); padding:8px; text-align:center;">26.335</td>
-            <td style="border:1px solid var(--line); padding:8px; text-align:center;">28.462</td>
-            <td style="border:1px solid var(--line); padding:8px; text-align:center;">26.439</td>
-            <td style="border:1px solid var(--line); padding:8px; text-align:center;">28.464</td>
-            <td style="border:1px solid var(--line); padding:8px; text-align:center;">0.40</td>
-            <td style="border:1px solid var(--line); padding:8px; text-align:center;">0.01</td></tr>
+        <tr>
+          <td rowspan="4" style="border:1px solid var(--line); padding:8px; text-align:center;">coinbank_bear</td>
+          <td style="border:1px solid var(--line); padding:8px; text-align:center;">1</td>
+          <td style="border:1px solid var(--line); padding:8px; text-align:center;">26.350</td>
+          <td style="border:1px solid var(--line); padding:8px; text-align:center;">28.449</td>
+          <td style="border:1px solid var(--line); padding:8px; text-align:center;">26.420</td>
+          <td style="border:1px solid var(--line); padding:8px; text-align:center;">28.486</td>
+          <td rowspan="4" style="border:1px solid var(--line); padding:8px; text-align:center; white-space:nowrap;">
+            7k: +0.40%<br>30k: +0.01%
+          </td>
+        </tr>
+        <tr>
+          <td style="border:1px solid var(--line); padding:8px; text-align:center;">2</td>
+          <td style="border:1px solid var(--line); padding:8px; text-align:center;">26.363</td>
+          <td style="border:1px solid var(--line); padding:8px; text-align:center;">28.495</td>
+          <td style="border:1px solid var(--line); padding:8px; text-align:center;">26.455</td>
+          <td style="border:1px solid var(--line); padding:8px; text-align:center;">28.525</td>
+        </tr>
+        <tr>
+          <td style="border:1px solid var(--line); padding:8px; text-align:center;">3</td>
+          <td style="border:1px solid var(--line); padding:8px; text-align:center;">26.291</td>
+          <td style="border:1px solid var(--line); padding:8px; text-align:center;">28.443</td>
+          <td style="border:1px solid var(--line); padding:8px; text-align:center;">26.442</td>
+          <td style="border:1px solid var(--line); padding:8px; text-align:center;">28.382</td>
+        </tr>
+        <tr>
+          <td style="border:1px solid var(--line); padding:8px; text-align:center;">avg.</td>
+          <td style="border:1px solid var(--line); padding:8px; text-align:center;">26.335</td>
+          <td style="border:1px solid var(--line); padding:8px; text-align:center;">28.462</td>
+          <td style="border:1px solid var(--line); padding:8px; text-align:center;">26.439</td>
+          <td style="border:1px solid var(--line); padding:8px; text-align:center;">28.464</td>
+        </tr>
       </tbody>
     </table>
   </div>
 </section>
-```
 
-    
+
     <section class="card">
       <div class="hrow"><span class="hicon">📦</span><div class="htxt">Downloads</div></div>
       <ul>
