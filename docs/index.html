@@ -103,13 +103,24 @@
       grid-template-columns:repeat(2, 1fr); /* Changed from 4 to 2 for larger size */
       gap:16px; margin:20px 0;
     }
+    /* 2. Dataset Objects: Modified to show full images */
+    .thumb-row{
+      display:grid; 
+      grid-template-columns:repeat(2, 1fr); 
+      gap:16px; margin:20px 0;
+    }
     .thumb-row img{
-      width:100%; aspect-ratio: 4/3; object-fit:cover; /* Aspect ratio adjusted for better view */
-      border-radius:10px; border:1px solid var(--line);
+      width:100%; 
+      aspect-ratio: 1/1;    
+      object-fit: contain; 
+      border-radius:10px; 
+      border:1px solid var(--line);
+      background-color: 
+      padding: 10px;  
       transition: transform 0.2s;
     }
     .thumb-row img:hover{
-      transform: scale(1.01);
+      transform: scale(1.02);
     }
 
     /* Tables */
