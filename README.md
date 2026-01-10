@@ -11,8 +11,7 @@
 ## 📘 Overview
 This work presents a **mobile object-centered data acquisition method** tailored to 3D Gaussian Splatting (3DGS).  
 It introduces an **on-device, real-time guided capture** process that leverages IMU-based orientation sensing, spherical coverage feedback, and stability gating to ensure consistent and uniform multiview data collection for high-fidelity 3D reconstruction.
-The output files are stored under the following directory:
-/storage/emulated/0/Android/data/org.fossify.camera.debug/files/captures/
+The output files are stored under the following directory: /storage/emulated/0/Android/data/org.fossify.camera.debug/files/captures/
 
 ---
 
