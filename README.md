@@ -3,7 +3,8 @@
 ---
 
 ## 🔔 News
-- **[2026-01]** Initial release with demo videos and Android capture APK.  
+- **[2026-01]** Initial release with demo videos and Android capture APK.
+- **[2026-04]** <p>🎉 <strong>This work has been accepted by the IEEE International Conference on Multimedia & Expo Workshops (ICMEW) 2026.</strong></p>
 - Source code and detailed documentation will be made publicly available soon.
 
 ---
