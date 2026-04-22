@@ -5,6 +5,7 @@
 ## 🔔 News
 - **[2026-01]** Initial release with demo videos and Android capture APK.
 - **[2026-04]** 🎉 <strong>This work has been accepted by the IEEE International Conference on Multimedia & Expo Workshops (ICMEW) 2026.</strong></p>
+- **[2026-04]** Our paper is available in arXiv [here](https://arxiv.org/abs/2604.19216).
 - Source code and detailed documentation will be made publicly available soon.
 
 ---
