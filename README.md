@@ -1,5 +1,33 @@
 # An Object-Centered Data Acquisition Method for 3D Gaussian Splatting using Mobile Phone
 
+
+<p align="center">
+  <a href="https://hits.sh/github.com/zyz-nwpu/Geometry-Constrained-Bidirectional-Registration/">
+    <img src="https://hits.sh/github.com/zyz-nwpu/Geometry-Constrained-Bidirectional-Registration.svg?label=views" alt="Repository views">
+  </a>
+  <a href="https://github.com/zyz-nwpu/Geometry-Constrained-Bidirectional-Registration/stargazers">
+    <img src="https://img.shields.io/github/stars/zyz-nwpu/Geometry-Constrained-Bidirectional-Registration?style=social" alt="GitHub stars">
+  </a>
+  <a href="https://github.com/zyz-nwpu/Geometry-Constrained-Bidirectional-Registration/network/members">
+    <img src="https://img.shields.io/github/forks/zyz-nwpu/Geometry-Constrained-Bidirectional-Registration?style=social" alt="GitHub forks">
+  </a>
+  <a href="https://github.com/zyz-nwpu/Geometry-Constrained-Bidirectional-Registration/watchers">
+    <img src="https://img.shields.io/github/watchers/zyz-nwpu/Geometry-Constrained-Bidirectional-Registration?style=social" alt="GitHub watchers">
+  </a>
+</p>
+
+<p align="center">
+  <a href="https://github.com/zyz-nwpu/Geometry-Constrained-Bidirectional-Registration/issues">
+    <img src="https://img.shields.io/github/issues/zyz-nwpu/Geometry-Constrained-Bidirectional-Registration" alt="GitHub issues">
+  </a>
+  <img src="https://img.shields.io/github/last-commit/zyz-nwpu/Geometry-Constrained-Bidirectional-Registration" alt="Last commit">
+  <img src="https://img.shields.io/github/repo-size/zyz-nwpu/Geometry-Constrained-Bidirectional-Registration" alt="Repo size">
+  <a href="https://github.com/zyz-nwpu/Geometry-Constrained-Bidirectional-Registration/graphs/traffic">
+    <img src="https://img.shields.io/badge/clones-GitHub%20Traffic-blue" alt="Clone statistics">
+  </a>
+</p>
+
+
 ---
 
 ## 🔔 News
