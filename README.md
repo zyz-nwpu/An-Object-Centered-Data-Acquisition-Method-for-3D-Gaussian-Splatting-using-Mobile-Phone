@@ -7,9 +7,6 @@
   <a href="https://github.com/zyz-nwpu/An-Object-Centered-Data-Acquisition-Method-for-3D-Gaussian-Splatting-using-Mobile-Phone/stargazers">
     <img src="https://img.shields.io/github/stars/zyz-nwpu/An-Object-Centered-Data-Acquisition-Method-for-3D-Gaussian-Splatting-using-Mobile-Phone?label=Stars&style=social" alt="Stars">
   </a>
-  <a href="https://github.com/zyz-nwpu/An-Object-Centered-Data-Acquisition-Method-for-3D-Gaussian-Splatting-using-Mobile-Phone/network/members">
-    <img src="https://img.shields.io/github/forks/zyz-nwpu/An-Object-Centered-Data-Acquisition-Method-for-3D-Gaussian-Splatting-using-Mobile-Phone?label=Forks&style=social" alt="Forks">
-  </a>
   <a href="https://github.com/zyz-nwpu/An-Object-Centered-Data-Acquisition-Method-for-3D-Gaussian-Splatting-using-Mobile-Phone/watchers">
     <img src="https://img.shields.io/github/watchers/zyz-nwpu/An-Object-Centered-Data-Acquisition-Method-for-3D-Gaussian-Splatting-using-Mobile-Phone?label=Watchers&style=social" alt="Watchers">
   </a>
