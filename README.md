@@ -1,33 +1,20 @@
 # An Object-Centered Data Acquisition Method for 3D Gaussian Splatting using Mobile Phone
 
-
 <p align="center">
   <a href="https://hits.sh/github.com/zyz-nwpu/An-Object-Centered-Data-Acquisition-Method-for-3D-Gaussian-Splatting-using-Mobile-Phone/">
     <img src="https://hits.sh/github.com/zyz-nwpu/An-Object-Centered-Data-Acquisition-Method-for-3D-Gaussian-Splatting-using-Mobile-Phone.svg?label=Views&color=blue" alt="Views">
   </a>
   <a href="https://github.com/zyz-nwpu/An-Object-Centered-Data-Acquisition-Method-for-3D-Gaussian-Splatting-using-Mobile-Phone/stargazers">
-    <img src="https://img.shields.io/github/stars/zyz-nwpu/An-Object-Centered-Data-Acquisition-Method-for-3D-Gaussian-Splatting-using-Mobile-Phone?label=Stars&style=flat&color=blue" alt="Stars">
+    <img src="https://img.shields.io/github/stars/zyz-nwpu/An-Object-Centered-Data-Acquisition-Method-for-3D-Gaussian-Splatting-using-Mobile-Phone?label=Stars&style=social" alt="Stars">
   </a>
   <a href="https://github.com/zyz-nwpu/An-Object-Centered-Data-Acquisition-Method-for-3D-Gaussian-Splatting-using-Mobile-Phone/network/members">
-    <img src="https://img.shields.io/github/forks/zyz-nwpu/An-Object-Centered-Data-Acquisition-Method-for-3D-Gaussian-Splatting-using-Mobile-Phone?label=Forks&style=flat&color=blue" alt="Forks">
+    <img src="https://img.shields.io/github/forks/zyz-nwpu/An-Object-Centered-Data-Acquisition-Method-for-3D-Gaussian-Splatting-using-Mobile-Phone?label=Forks&style=social" alt="Forks">
   </a>
   <a href="https://github.com/zyz-nwpu/An-Object-Centered-Data-Acquisition-Method-for-3D-Gaussian-Splatting-using-Mobile-Phone/watchers">
-    <img src="https://img.shields.io/github/watchers/zyz-nwpu/An-Object-Centered-Data-Acquisition-Method-for-3D-Gaussian-Splatting-using-Mobile-Phone?label=Watchers&style=flat&color=blue" alt="Watchers">
+    <img src="https://img.shields.io/github/watchers/zyz-nwpu/An-Object-Centered-Data-Acquisition-Method-for-3D-Gaussian-Splatting-using-Mobile-Phone?label=Watchers&style=social" alt="Watchers">
   </a>
 </p>
 
-<p align="center">
-  <a href="https://github.com/zyz-nwpu/An-Object-Centered-Data-Acquisition-Method-for-3D-Gaussian-Splatting-using-Mobile-Phone/issues">
-    <img src="https://img.shields.io/github/issues/zyz-nwpu/An-Object-Centered-Data-Acquisition-Method-for-3D-Gaussian-Splatting-using-Mobile-Phone?label=Issues&style=flat&color=blue" alt="Issues">
-  </a>
-  <img src="https://img.shields.io/github/last-commit/zyz-nwpu/An-Object-Centered-Data-Acquisition-Method-for-3D-Gaussian-Splatting-using-Mobile-Phone?label=Last%20Commit&style=flat&color=blue" alt="Last Commit">
-  <img src="https://img.shields.io/github/repo-size/zyz-nwpu/An-Object-Centered-Data-Acquisition-Method-for-3D-Gaussian-Splatting-using-Mobile-Phone?label=Repo%20Size&style=flat&color=blue" alt="Repo Size">
-  <a href="https://github.com/zyz-nwpu/An-Object-Centered-Data-Acquisition-Method-for-3D-Gaussian-Splatting-using-Mobile-Phone/graphs/traffic">
-    <img src="https://img.shields.io/badge/Clones-GitHub%20Traffic-blue" alt="Clone Statistics">
-  </a>
-</p>
-
----
 
 ## 🔔 News
 - **[2026-01]** Initial release with demo videos and Android capture APK.
